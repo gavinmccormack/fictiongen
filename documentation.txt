@@ -1,0 +1,37 @@
+# Fiction Generator
+Last updated: 08/06/2017
+
+## Outline
+
+The function generator relies on the markovify python library to create models, chains, and generate sentences, as well as some action from the NLTK library described in further detail below.
+
+
+### Markov Functions 
+
+These exist in the markov_functions application, with the main bulk of this happening within mk_functions.py. 
+
+Further responsibilities for the markov_functions app are:
+
+* Models for books, and pre-generated json-ified probability chains
+* Logging functionality for the process
+* NLTK tag checking. Needs further development, but useful stub for replacing words based on class
+* Extended markov generation model which takes the group of words, and attempts to re-order them into an "acceptable" NLTK range of words
+* Book loading; initially in the form of two pre-chosen corpsuses, but also for book models.
+* A stub for whatsapp conversation parsing. Can be used currently by uploading a chatlog; however this is cumbersome for any sane person with other things to do, so we need some integration if of interest.
+* simple URL processing paths for sending a post request to retrieve the data. Ideally this would be in the form of a restful API that can be accessed from other platforms.
+
+
+### Restmark
+
+Restful API for navigating the contents of the websites; primarily to view, add, and return books.
+
+### Erofic
+
+Current front end and link to the markov functionality. This could do with some decoupling in order to distance this front end from the functionality, and will be substituted with an incremental rewrite to provide a broader front end that 1. can be viewed inside of a work place, or is suitable to show your mother, 2. provides additional functionality as a writer's inspirational tool  ( i.e http://planetsark.com/buy-stuff/writers-card-deck/ ), 3. provides functionality for more books
+
+The front end is primarily based around post requests and ajax functionality, and index.html is the only page as of writing.
+
+
+## Other
+
+* Database is currently SQLlite, will need updating as primary prototype did not involve database usage.
