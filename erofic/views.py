@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.views.decorators.csrf import csrf_exempt ## insecure - fix
 # Create your views here.
 import markov_functions.mk_functions as ma # Test
+from markov_functions.models import Book
 
 def PrintException():
     exc_type, exc_obj, tb = sys.exc_info()
@@ -19,6 +20,11 @@ def PrintException():
 def index(request):
 	context = {}
 	return render_to_response('index.html', context)
+
+def homepage(request):
+	context = {}
+	context['books'] = Book.objects.all()
+	return render_to_response('homepage.html', context)
 
 
 

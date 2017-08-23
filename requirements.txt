@@ -10,4 +10,3 @@ nltk==3.2.4
 pytz==2017.2
 six==1.10.0
 Unidecode==0.4.21
-uWSGI==2.0.15
