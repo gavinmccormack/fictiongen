@@ -90,6 +90,7 @@ def load_active_books(listOfBooks):
   return text
 
 def markovify_text(text, lines, ulysses, erotic, posEnabled, conf_state_size=2, line_breaks=3 ):
+  """ Method needs refactored particularly in light of proper book models """
   log.g_log_exception("Begin markovification")
   try: 
     text = text + load_book( int(ulysses) )
@@ -108,7 +109,7 @@ def markovify_text(text, lines, ulysses, erotic, posEnabled, conf_state_size=2, 
   except:
     log.g_log_exception("Generating text failed for the following reason:")
     log.g_log_exception(log.PrintException())
-    return "Failed to generate any text : ("
+    return False
 
 
 def markovify_sentence(text_model): # Extended the markov method to fail silently

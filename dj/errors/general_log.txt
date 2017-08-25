@@ -114,3 +114,15 @@ Time: 2017-08-25 15:45:46.408733  Begin book load
 Time: 2017-08-25 15:45:46.408733  Booksize: 15 / Filename: ulysses.txt
 Time: 2017-08-25 15:46:34.480232  Begin book load
 Time: 2017-08-25 15:46:34.480232  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:11:16.248663  Begin book load
+Time: 2017-08-25 16:11:16.264288  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:11:45.849321  Begin book load
+Time: 2017-08-25 16:11:45.864948  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:12:32.971356  Begin book load
+Time: 2017-08-25 16:12:32.986981  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:12:51.178294  Begin book load
+Time: 2017-08-25 16:12:51.178294  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:13:07.964110  Begin book load
+Time: 2017-08-25 16:13:07.964110  Booksize: 15 / Filename: ulysses.txt
+Time: 2017-08-25 16:13:54.322254  Begin book load
+Time: 2017-08-25 16:13:54.337879  Booksize: 15 / Filename: ulysses.txt
