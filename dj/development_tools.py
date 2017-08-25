@@ -1,12 +1,17 @@
-
 import time
 import linecache
 import sys
 import os
+
+import datetime
+from dj.settings import MARKOV_LOGGING
 # Tools for development and logging purposes.
 # I.e custom built profilers and loggers (although third party loggers are probably idea.)
 
-MARKOV_LOGGING = False # Hook this up to logging function 
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : lambda request: True,
+}
+
 
 def PrintException():
     exc_type, exc_obj, tb = sys.exc_info()
