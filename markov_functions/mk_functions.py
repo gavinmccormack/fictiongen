@@ -1,63 +1,11 @@
 # encoding=utf8  
 import markovify
-import time
-import linecache
 import sys
 import os
-import re
-import nltk
-import datetime
-import random
-import importlib
-import codecs
 from dj import development_tools  as log
+from markov_functions import nltk
 
-importlib.reload(sys)  
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk_data')) ## Add NLTK grammars & tagging
-
-## Experimental and humourin' modules
-def tag_check(tag):
-  """ Replace certain types of words with bizarre food alternatives. Prototype; needs refactoring/fixing """
-  gross_words_list = ['meat','ham'] #,'salami','pork','jelly','cake']
-  gross_words_list_p = ["meat's"] #,"ham's","salami's","pork's","jelly's","cake's"]
-  singular = ['NN'] # NNP, NN 
-  plural =  ['NNS'] # bacons 'NNPS','NNS''
-  ownership = ['PRP$','POS'] # bacon's
-  if tag[1] in singular:
-    return random.choice(gross_words_list) + "::"+tag[1]
-  if tag[1] in plural:
-    return random.choice(gross_words_list_p) + "::"+tag[1]
-  else:
-    log.g_log_exception(tag,"NLTK_words.txt")
-    return "::".join(tag)
-
-## override markovify text method with POS natural language
-class POSifiedText(markovify.Text):
-  """ Extend markovify.text method to use POS """
-  def word_split(self, sentence):
-    try:
-      words = re.split(self.word_split_pattern, sentence)
-      words_cache = []
-      for tag in nltk.pos_tag(words):
-          try:
-            words_cache.append( tag_check(tag) )
-          except Exception as e:
-            log.g_log_exception("POSifiedText Problem" ,"NLTK_words.txt",exception=True)
-
-      words = words_cache
-      return words
-    except Exception as e:
-      log.g_log_exception("Error in word_split", exception=True)
-      return words
-
-  def word_join(self, words):
-    sentence = " ".join(word.split("::")[0] for word in words)
-    return sentence
-
-
-
-
-#############################################################################
+##############################################################################
 ###### Markov FUnctions
 
 def build_model(text, conf_state_size, posEnabled=False):
@@ -68,33 +16,14 @@ def build_model(text, conf_state_size, posEnabled=False):
     log.g_log_exception("We used good old simple markov chain")
     return (markovify.Text(text, state_size=conf_state_size))
 
-def load_book(filesize, filename="ulysses.txt"):
-  try:
-    log.g_log_exception("Begin book load")
-    log.g_log_exception("Booksize: " + str(filesize) + " / Filename: " + filename)
 
-    path = os.path.join(os.path.dirname(__file__), 'books', filename)
-    with codecs.open(path, "r", encoding='utf-8') as file:    # Codec module to avoid ascii encode/decode errors 
-      bookText = file.read()
-    bookText = "".join(bookText).strip()
-    return bookText
-  except:
-    log.g_log_exception("Book load failed for the following reason:")
-    log.g_log_exception(log.PrintException())
-
-def load_active_books(listOfBooks):
-  """ Takes a list of books by ID and loads them into a text string """
-  text = ""
-  for book in listOfBooks:
-    text += load_book()
-  return text
-
-def markovify_text(text, lines, ulysses, erotic, posEnabled, conf_state_size=2, line_breaks=3 ):
+def markovify_text(text, lines, books, posEnabled, conf_state_size=2, line_breaks=3 ):
   """ Method needs refactored particularly in light of proper book models """
   log.g_log_exception("Begin markovification")
+  books = ["ulysses.txt"] # an array of ID's for books, but at the moment .txt refs
   try: 
-    text = text + load_book( int(ulysses) )
-    text = text + load_book( int(erotic) , "megarotic.txt")
+    text = text + load_book()
+    text = text + load_book( "megarotic.txt" )
     text = text.decode('utf-8')
     mtext = build_model(text,conf_state_size, int(posEnabled))
     output = ""
@@ -117,3 +46,6 @@ def markovify_sentence(text_model): # Extended the markov method to fail silentl
   if not(sentence is None):
     return sentence.unicode()
 
+
+#############################################################################
+###### Text Pre-Processors
