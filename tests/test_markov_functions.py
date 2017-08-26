@@ -52,11 +52,9 @@ class test_internal_mk_functions(TestCase):
 
 	def test_build_model(self):
 		with open(self.valid_model_path ,'r') as f:
-			valid_model = json.loads(f)
+			valid_model = json.loads(f.read())
 			tested_model = self.model.to_json()
 			tested_model = json.loads(tested_model)
-			print(valid_model)
-			#print(type(valid_model))
 			self.assertEqual(self.model.to_json(), valid_model) # Currently failing, need to investigate better ways of validating data objects
 
 class test_mk_functions_request_views(TestCase):
@@ -64,5 +62,7 @@ class test_mk_functions_request_views(TestCase):
 		self.cli = Client()
 
 	def test_ma_process(self):
-		self.cli.post('/mk/process/', {"marktext" : "I am the input text", "lines" : 5, "ulysses" : 500,
+		request = self.cli.post('/mk/process/', {"marktext" : "I am the input text", "lines" : 5, "ulysses" : 500,
 										"erotic" : 500, "stateSize" : 1, "grammar" : False })
+		self.assertEqual(request.status_code, 200)
+		print(request.content)

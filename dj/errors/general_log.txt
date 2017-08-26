@@ -201,3 +201,19 @@ Time: 2017-08-26 10:51:18.501686  We used good old simple markov chain
 Time: 2017-08-26 10:51:18.517312  Begin markovification
 Time: 2017-08-26 10:51:18.533074  Generating text failed for the following reason:
 Time: 2017-08-26 10:51:18.541090  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 25 "text = text + load_book()"): name 'load_book' is not defined
+Time: 2017-08-26 10:57:54.897331  We used good old simple markov chain
+Time: 2017-08-26 10:57:54.912941  Begin markovification
+Time: 2017-08-26 10:57:54.928568  Generating text failed for the following reason:
+Time: 2017-08-26 10:57:54.928568  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 25 "text = text + load_book()"): name 'load_book' is not defined
+Time: 2017-08-26 10:58:10.523231  We used good old simple markov chain
+Time: 2017-08-26 10:58:10.538856  Begin markovification
+Time: 2017-08-26 10:58:10.554470  Generating text failed for the following reason:
+Time: 2017-08-26 10:58:10.554470  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 25 "text = text + load_book()"): name 'load_book' is not defined
+Time: 2017-08-26 11:13:53.045502  We used good old simple markov chain
+Time: 2017-08-26 11:13:53.264253  Begin markovification
+Time: 2017-08-26 11:13:53.264253  Generating text failed for the following reason:
+Time: 2017-08-26 11:13:53.279879  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 25 "text = text + load_book()"): name 'load_book' is not defined
+Time: 2017-08-26 11:15:36.600010  We used good old simple markov chain
+Time: 2017-08-26 11:15:36.615634  Begin markovification
+Time: 2017-08-26 11:15:36.615634  Generating text failed for the following reason:
+Time: 2017-08-26 11:15:36.631259  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 25 "text = text + load_book()"): name 'load_book' is not defined
