@@ -1,7 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 import os
 # Test specific 
 from markov_functions import books, mk_functions
+import json
 
 #################################
 # Markov Function unit tests
@@ -36,7 +37,7 @@ class test_books(TestCase):
 		## Test the load_active_books function when operational
 		pass
 
-class test_mk_functions(TestCase):
+class test_internal_mk_functions(TestCase):
 	def setUp(self):
 		self.loaded_text_5_chars = books.load_book(15,"ulysses.txt")[0:5]
 		self.loaded_text_50_chars = books.load_book(15,"ulysses.txt")[0:50]
@@ -46,14 +47,22 @@ class test_mk_functions(TestCase):
 
 	def save_build_model(self):
 		""" Not a test, but this will save a generated model to use to validate the output """
-		with open(valid_model,'w') as f:
-			f.write(self.model.to_json())
+		with open(self.valid_model_path,'w') as f:
+			json.dump(self.model.to_json(), f)
 
 	def test_build_model(self):
-		print(self.model.to_json())
 		with open(self.valid_model_path ,'r') as f:
-			valid_model = f.read()
-			print(type(self.model.to_json()))
-			print(type(valid_model))
+			valid_model = json.loads(f)
+			tested_model = self.model.to_json()
+			tested_model = json.loads(tested_model)
+			print(valid_model)
+			#print(type(valid_model))
 			self.assertEqual(self.model.to_json(), valid_model) # Currently failing, need to investigate better ways of validating data objects
 
+class test_mk_functions_request_views(TestCase):
+	def setUp(self):
+		self.cli = Client()
+
+	def test_ma_process(self):
+		self.cli.post('/mk/process/', {"marktext" : "I am the input text", "lines" : 5, "ulysses" : 500,
+										"erotic" : 500, "stateSize" : 1, "grammar" : False })
