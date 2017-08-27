@@ -99,4 +99,4 @@ ENV/
 .mypy_cache/
 
 # Django custom
-settings.py
+local_settings.py
