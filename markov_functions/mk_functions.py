@@ -4,6 +4,7 @@ import sys
 import os
 from dj import development_tools  as log
 from markov_functions import nltk
+from .books import load_book
 
 ##############################################################################
 ###### Markov FUnctions
@@ -11,7 +12,7 @@ from markov_functions import nltk
 def build_model(text, conf_state_size, posEnabled=False):
   if posEnabled:
     log.g_log_exception("We used fancy piece of shit text")
-    return (POSifiedText(text, state_size=conf_state_size))
+    return (nltk.POSifiedText(text, state_size=conf_state_size))
   else:
     log.g_log_exception("We used good old simple markov chain")
     return (markovify.Text(text, state_size=conf_state_size))

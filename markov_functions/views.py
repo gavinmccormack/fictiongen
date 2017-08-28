@@ -5,19 +5,7 @@ from django.views.decorators.csrf import csrf_exempt ## Temporary
 #from web_functions import steal_from_url
 from django.template import RequestContext
 import markov_functions.mk_functions as ma
-# Post call to whatsapp text
-
-
-def PrintException():
-    # Should move to logging func
-    exc_type, exc_obj, tb = sys.exc_info()
-    f = tb.tb_frame
-    lineno = tb.tb_lineno
-    filename = f.f_code.co_filename
-    linecache.checkcache(filename)
-    line = linecache.getline(filename, lineno, f.f_globals)
-    return 'EXCEPTION IN ({}, LINE {} "{}"): {}'.format(filename, lineno, line.strip(), exc_obj)
-
+from dj import development_tools  as log
 
 
 @csrf_exempt
@@ -29,13 +17,11 @@ def ma_process(request):
 			markovedText = ma.markovify_text(
 				request.POST['marktext'].encode('utf-8'),
 				request.POST['lines'],  
-				request.POST['ulysses'], 
-				request.POST['erotic'], 
 				request.POST['grammar'], 
 				int(request.POST['stateSize']), )
 			return HttpResponse(markovedText)#.encode('utf-8'))
 		except Exception as e:
-			return HttpResponse(ma.PrintException())
+			return HttpResponse(log.PrintException())
 	return HttpResponse("Request was not sent as POST request.")
 
 @csrf_exempt

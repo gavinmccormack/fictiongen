@@ -19,8 +19,6 @@ function log_format(text) {
 function get_lines() { return $('#line-num').val()  }
 function get_statesize() { return $('#state-size').val()  }
 function get_url() { return $('#url-entry').val()  }
-function get_ulysses_slider() { return $('#ulysses-entry').val()  }
-function get_ero_slider() { return $('#ero-entry').val()  }
 function get_grammar_kit() { 
 	if ($('#grammar-entry').is(":checked"))
 	{return 1; } else { return 0;}}
@@ -47,15 +45,10 @@ function send_log(query) {
 						marktext: escape(query) ,
 					 	stateSize: get_statesize() ,
 					 	lines: get_lines(), 
-					 	ulysses : get_ulysses_slider() , 
-					 	erotic : get_ero_slider() ,
 					 	grammar : get_grammar_kit(),
 					 	csrfmiddlewaretoken: "{{ csrf_token }}"}, function (data) {
 					$( ".response-field p" ).html(log_format(data));
 					});
-					openTab(window.event, 'results');
-          $('#tab-whatsapp').show();
-          $('#tab-whatsapp').css('display', 'inline-block');
 				 }
 
 function retrieve_text_from_url(query) {
@@ -74,32 +67,8 @@ $(document).ready(function() {
 
 				// Default Tab
 				document.getElementById("tab-plaintext").click();
-
-				
 				
 		});
-
-
-function openTab(evt, cityName) {
-    // Declare all variables
-    var i, tabcontents, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    var tabcontents = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontents.length; i++) {
-        tabcontents[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the link that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
 
 	// Check if range sliders change and update percentage blend
 	function setPercentages () {
@@ -111,52 +80,27 @@ function openTab(evt, cityName) {
 				var percentage = percentageUly + "% / " + percentageEro + "%" ;
 	            $('#percentage-counter').html(percentage);
 	};
-
-$(function(){
-	
-	$('#ulysses-entry').change(function(){
-		var currentValue = $('#currentValue');
-	    setPercentages();
-	    currentValue.html(this.value);
-	});
-	// Trigger the event on load, so
-	// the value field is populated:
-	$('#ulysses-entry').change();
-
-	
-	$('#ero-entry').change(function(){
-		var currentValue = $('#currentValue-ero');		
-	    setPercentages();
-	    currentValue.html(this.value);
-	});
-	// Trigger the event on load, so
-	// the value field is populated:
-	$('#ero-entry').change();
-});
-
-
 </script>
+
+
 <div id="main-container" >
 <div class="content container fill-height">
 <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."></img>
-<h3 class="main-title">Erotic Fiction Generator</h3>
+<h3 class="main-title">Non-Erotic Fiction Generator</h3>
 
 <ul class="tab">
-<li><a href="javascript:void(0)" id="tab-plaintext" class="tablinks" onclick="openTab(event, 'plaintext')">Plain Text</a></li>
-<li><a href="javascript:void(0)" id="tab-whatsapp" class="tablinks" onclick="openTab(event, 'results')">Results</a></li>
-<li><a href="javascript:void(0)" id="tab-faq" class="tablinks" onclick="openTab(event, 'faq')" title="If you wanted me to FAQ you, you just had to ask.">FAQ</a></li>
-<!-- <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'whatsapp')">Whatsapp Logs</a></li> -->
+<li><a href="javascript:void(0)" id="tab-plaintext" class="tablinks">Plain Text</a></li>
+<li><a href="javascript:void(0)" id="tab-whatsapp" class="tablinks">Results</a></li>
 </ul>
 
-	<div id="plaintext" class="tabcontent">
+	<div id="plaintext" class="page-content">
 		<div class="setting col-md-12">
-			<small> Note: There are plenty of ways you can make this impossibly slow; I'd mainly stick to a line total under 500,000, or under 100,000 if using grammar checking. State size, and percentages of Ulysses/Erotic Fiction/Your own text are probably the most interesting to play with at the moment.</small>
+			<small>In the mean time, getting this working with pre-generated models is the goal! Assuming that using a large pre-generated model doesn't take a long time for the 230mb txt file, it can probably be assumed it's fast enough.</small>
 		</div>
 
 		<div class="setting col-md-4">
-			<label>Number of Lines of Erotic-ness </label>
+			<label>Number of Lines</label>
 			<input type="number"  class="form-control" id="line-num" value="30"/><br />
-			<small>The number of lines of eroticism the system will (try to) generate. Be generous, but pace yourself.</small>
 		</div>
 
 		<div class="setting col-md-4">
@@ -171,36 +115,6 @@ $(function(){
 			<input type="checkbox" class="checkbox" id="grammar-entry"/><br/>
 			<small>Runs natural language processing to try and improve the quality of the content; this will take noticably longer if the body of text is larger. It does make it nicer though.</small>
 		</div>
-
-		<div class="setting  col-md-6">
-			 <label>Amount of Ulysses to blend</label>
-			 <small>The amount of the text "Ulysses" to add into the algorithm; it helps class up the end result a bit. It should go without saying that large amounts of this may decrease the sexiness of the text greatly.</small>
-			 
-			 <input type="range" id="ulysses-entry" min="0" max="30000" value="30000" />
-			 <p class="note center"><span id="currentValue" class="lines-counter">0</span> lines of text...</p>
-		</div>
-
-		<div class="setting  col-md-6">
-			<label>Amount of Erotic Fiction to blend</label>
-			<small>The amount of assorted erotic fiction to add into the algorithm; This is by no means a quality collection, and encompasses a myriad of characters, themes, and interests.</small>
-			
-			<input type="range" id="ero-entry" min="0" max="906669" value="30000" />
-			<p class="note center"><span id="currentValue-ero" class="lines-counter">0</span> lines of text...</p>
-		</div>
-
-		<div class="setting col-md-8">
-			<label>Your Erotic Content</label>
-			<textarea type="textarea" id="markov-entry" placeholder="Insert your hot sexy action here. You'll need a fairly significant amount of text in order to produce good results, and if you'd just like your own content processed then turn both of the sliders to 0."></textarea>
-					
-		</div>
-
-		<div class="setting col-md-4">
-			<label>Add from URL </label>
-			<small>Add a URL for plaintext here and it will be added below. A repository of plain text fiction is here - <a href="http://textfiles.com/sex/EROTICA/">Erotical</a></small><br/>
-			<input id="url-entry" value="Http:/"/>
-			<button class="btn btn-secondary" id="add-url" onclick="retrieve_text_from_url()">Add</button>
-		</div>
-
 
 		<div class="percentages center col-md-4">
 			<small>You've chosen a sophisticated blend of <br /> <span id="percentage-counter" class="lines-counter">-numeros-</span><br /> Ulysses/Erotic fiction.</small>
@@ -218,20 +132,9 @@ Should I stay or should I go?"> Go </button></p>
 		</div>
 
 	</div>
-<!--
-	<div id="whatsapp" class="tabcontent"> 
-		<h3> Markov Chain Entry </h3>
-
-		
-		<label>Number of Lines of Erotic-ness </label> <input type="number" id="line-num" value="20"/>
-		
-		<label>Your Erotic Content</label>
-		<textarea type="textarea" id="markov-entry-wa">Insert additional text here.</textarea>
-				<p><button class="btn btn-primary" id="talk-button" onclick="send_log_whatsapp($('#markov-entry-wa').val())"> Submit </button></p>
--->
 	</div>
 
-	<div id="results" class="tabcontent"> 
+	<div id="results" class="page-content"> 
 		<div class="loader"></div>
 		<div class="response-field-wrap">
 		<div id="notebook-head">
@@ -240,39 +143,6 @@ Should I stay or should I go?"> Go </button></p>
 		<div class="response-field response-text container">
 		<p> The results are loading... or they might not be. I'm not really sure. But if you've pressed the right buttons something should come up eventually.</p>
 		</div>
-		</div>
-	</div>
-
-
-	<div id="faq" class="tabcontent"> 
-		<div class="container">
-			<label>What is this?</label>
-			<small>This is a markov chain text generator integrated into a web application. It takes a collection of text, and mathematically calculates the probability of the words following. </small>
-			<label>What is a Markov Chain?</label>
-			<small>A markov chain is a probability tool which in the simplest form bases it's next results on the previous state. Some information can be found <a href="https://en.wikipedia.org/wiki/Markov_chain">here</a> and <a src="http://setosa.io/ev/markov-chains/">here</a> and <a href="http://www.google.co.uk">here</a>. Ask anyone that isn't me really. </small>
-			<label>Why erotic fiction?</label>
-			<small>This works best when there is a very loose and uncohesive plot. This is the element in common that both erotic fiction and irish author James Augustine Aloysius Joyce's classic stream of consciousness novel have in common. Other than sex. They both have that.</small>
-			<label>Grammar Checking? Natural Language Processing?</label>
-			<small>I use the NLTK's system for tagging "parts of speech", so that it's relationship to other words become more clear and some ungrammatical nonsense sentences can be dealt with before they reach your beautiful, beautiful eyes. I'll be honest, I'm not sure how or why this part works, I haven't done my research.</small>
-			<label>I can use it for other things?</label>
-			<small>Yes, just set the sliders to 0 and use your own text. You can also acquire markov chain text libraries in most programming languages, and there is likely a number of other websites which provide a similar, but ultimately less inspired effort.</small>
-			<label>Sometimes there are errors!</label>
-			<small>The Errors, they move in wondrous ways.
-					Through the branches they blow and it sways.
-					It takes all the code and flies it so high.
-					Then briefly it lets go and they fall from the sky.</small>
-			<label>Sometimes it outputs the current time and a blank space</label>
-			<small>The art of erobotic fiction is a delicate matter. It's likely you're twisting, tugging, or teasing the values too hard. Although you may think that this would evoke a greater response, sometimes you have to tone it down and find the "Sweet spot" that will produce the most erotic experience.</small>
-			<label>The text sometimes gets a little disturbing...</label>
-			<small>I scraped the entire contents of a user submitted erotic fiction site, which includes a sea of categories relating to most fetishes you can write about.</small>
-			<label>State size?</label>
-			<small>The state size is the number of words that are used before calculating the next section. A state size of one takes every single word as it's own unit. It's uncommon to find too many 4 or 5 sized states in a collection of text this size, however they will be a lot more cohesive</small>
-			<label>How much of this output is repeated from the original text?</label>
-			<small>"The default rule is to suppress any generated sentences that exactly overlaps the original text by 15 words or 70% of the sentence's word count."</small>
-			<label>It would be good if every story didn't turn into a confusing orgy involving fifty parties</label>
-			<small>I'm working on it.</small>
-			<label>Who do I have to thank for this magic?</label>
-			<small><a href="https://en.wikipedia.org/wiki/Andrey_Markov">This guy</a>. However much more recently in history, <a href="https://github.com/jsvine">this guy</a> has done pretty much all of the leg work in developing the underlying library.</small>
 		</div>
 	</div>
 </div>
