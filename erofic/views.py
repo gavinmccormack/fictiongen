@@ -18,55 +18,56 @@ def PrintException():
 
 
 def index(request):
-	context = {}
-	return render_to_response('index.html', context)
+    books_query = Book.objects.all()
+    context = {'books_query': books_query}
+    return render_to_response('index.html', context)
 
 def homepage(request):
-	context = {}
-	context['books'] = Book.objects.all()
-	return render_to_response('homepage.html', context)
+    context = {}
+    context['books'] = Book.objects.all()
+    return render_to_response('homepage.html', context)
 
 
 
 # Post call to whatsapp text
 @csrf_exempt
 def ma_process(request):
-	""" Send text to algorithm and return response """
-	context_instance=RequestContext(request)
-	if request.method == 'POST':
-		try:
-			markovedText = ma.markovify_text(
-				request.POST['marktext'].encode('utf-8'),
-				request.POST['lines'],  
-				request.POST['ulysses'], 
-				request.POST['erotic'], 
-				request.POST['grammar'], 
-				int(request.POST['stateSize']), )
-			return HttpResponse(markovedText.encode('utf-8'))
-		except Exception as e:
-			return HttpResponse(PrintException())
-	return HttpResponse("Request was not sent as POST request.")
+    """ Send text to algorithm and return response """
+    context_instance=RequestContext(request)
+    if request.method == 'POST':
+        try:
+            markovedText = ma.markovify_text(
+                request.POST['marktext'].encode('utf-8'),
+                request.POST['lines'],
+                request.POST['ulysses'],
+                request.POST['erotic'],
+                request.POST['grammar'],
+                int(request.POST['stateSize']), )
+            return HttpResponse(markovedText.encode('utf-8'))
+        except Exception as e:
+            return HttpResponse(PrintException())
+    return HttpResponse("Request was not sent as POST request.")
 
 @csrf_exempt
 def ma_process_whatsapp(request):
-	""" Send whatsapp text to algorithm and return response """
-	context_instance=RequestContext(request)
-	if request.method == 'POST':
-		try:
-			markovedText = ma.markovify_whatsapp(request.POST['whattext'].encode('utf-8'), request.POST['lines'])
-			return HttpResponse(markovedText)
-		except Exception as e:
-			return HttpResponse("I'm sorry, I've failed you and there was an error :" + str(e) )
-	return HttpResponse("A query was not correctly sent to the chatbot")
+    """ Send whatsapp text to algorithm and return response """
+    context_instance=RequestContext(request)
+    if request.method == 'POST':
+        try:
+            markovedText = ma.markovify_whatsapp(request.POST['whattext'].encode('utf-8'), request.POST['lines'])
+            return HttpResponse(markovedText)
+        except Exception as e:
+            return HttpResponse("I'm sorry, I've failed you and there was an error :" + str(e) )
+    return HttpResponse("A query was not correctly sent to the chatbot")
 
 
 @csrf_exempt
 def steal_text(request):
-	response = steal_from_url(request.POST['url'])
-	return HttpResponse(response)
+    response = steal_from_url(request.POST['url'])
+    return HttpResponse(response)
 
 @csrf_exempt
 def compile_scripts(request):
-	import os
-	result = os.system('python -m compileall ' + os.path.dirname(__file__)) # Not working atm, likely apache user permissions 
-	return HttpResponse("Scripts compiled: " + str(result))
+    import os
+    result = os.system('python -m compileall ' + os.path.dirname(__file__)) # Not working atm, likely apache user permissions
+    return HttpResponse("Scripts compiled: " + str(result))
