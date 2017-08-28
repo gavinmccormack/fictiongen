@@ -11,30 +11,39 @@ from .books import load_book
 
 def build_model(text, conf_state_size, posEnabled=False):
   if posEnabled:
-    log.g_log_exception("We used fancy piece of shit text")
+    log.g_log_exception("Type: NLTK")
     return (nltk.POSifiedText(text, state_size=conf_state_size))
   else:
-    log.g_log_exception("We used good old simple markov chain")
+    log.g_log_exception("Type: Simple")
     return (markovify.Text(text, state_size=conf_state_size))
 
+def save_model(model):
+  """ Takes a markovify text model and dumps it as JSON to a file """
+  save_model_path = "Should look into using Django storage functions."
+  with open("Example_Model_Path.txt",'w') as f:
+      json.dump(model.to_json(), f)
+
+def get_saved_model(bookID, testingFilePath):
+  with open(testingFilePath, 'rb') as f:
+    f.read()
 
 def markovify_text(text, lines, books, posEnabled, conf_state_size=2, line_breaks=3 ):
   """ Method needs refactored particularly in light of proper book models """
-  log.g_log_exception("Begin markovification")
-  books = ["ulysses.txt"] # an array of ID's for books, but at the moment .txt refs
+  log.g_log_exception("Beginning markovification")
+  # an array of ID's for books, but at the moment .txt refs
+  # The verbose method of creating the dict is used so that we can have integer keys.
+  books = dict([("ulysses.txt", 1)]) 
   try: 
+    text = text.decode('utf-8') # text comes in as bytecode
     text = text + load_book()
-    #text = text + load_book( "megarotic.txt" )
-    text = text.decode('utf-8')
     mtext = build_model(text,conf_state_size, int(posEnabled))
     output = ""
     for i in range(int(lines)):
       sentence = str(mtext.make_sentence()) + " " # Spaces after full stop
       if sentence != "None ":
-        if i % 5 == 0:          # Add in line breaks every so often, just for a bit more of a normal appearance, add this to front end
+        if i % line_breaks == 0:          # Add in line breaks every so often, just for a bit more of a normal appearance, add this to front end
           output = output + "<br />"
         output = output + sentence 
-    #output = changePronouns(output)
     return output
   except:
     log.g_log_exception("Generating text failed for the following reason:")
@@ -46,7 +55,3 @@ def markovify_sentence(text_model): # Extended the markov method to fail silentl
   sentence = text_model.make_sentence()
   if not(sentence is None):
     return sentence.unicode()
-
-
-#############################################################################
-###### Text Pre-Processors

@@ -1,32 +1,17 @@
-Time: 2017-08-28 11:43:32.737694  Begin markovification
-Time: 2017-08-28 11:43:35.548530  We used fancy piece of shit text
-Time: 2017-08-28 11:43:35.548530  Generating text failed for the following reason:
-Time: 2017-08-28 11:43:35.564155  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): name 'POSifiedText' is not defined
-Time: 2017-08-28 11:44:28.115631  Begin markovification
-Time: 2017-08-28 11:44:30.821447  We used fancy piece of shit text
-Time: 2017-08-28 11:44:30.821447  Generating text failed for the following reason:
-Time: 2017-08-28 11:44:30.837071  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): module 'markov_functions.nltk' has no attribute 'POSifiedText'
-Time: 2017-08-28 11:48:21.824223  Begin markovification
-Time: 2017-08-28 11:48:24.514010  Begin markovification
-Time: 2017-08-28 11:48:24.514010  We used fancy piece of shit text
-Time: 2017-08-28 11:48:27.480669  We used fancy piece of shit text
-Time: 2017-08-28 11:49:03.071381  Test P Except
-EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\nltk.py, LINE 43 "words = re.split(self.word_split_pattern, sentence)"): name 're' is not defined
-Time: 2017-08-28 11:49:03.118255  Test P Except
-EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\nltk.py, LINE 43 "words = re.split(self.word_split_pattern, sentence)"): name 're' is not defined
-Time: 2017-08-28 11:49:03.202017  Generating text failed for the following reason:
-Time: 2017-08-28 11:49:03.202017  Generating text failed for the following reason:
-Time: 2017-08-28 11:49:03.206020  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): local variable 'words' referenced before assignment
-Time: 2017-08-28 11:49:03.206020  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): local variable 'words' referenced before assignment
-Time: 2017-08-28 11:52:06.222380  Begin markovification
-Time: 2017-08-28 11:52:08.874177  We used fancy piece of shit text
-Time: 2017-08-28 11:55:36.942117  Begin markovification
-Time: 2017-08-28 11:55:39.631616  We used fancy piece of shit text
-Time: 2017-08-28 12:22:51.678176  Begin markovification
-Time: 2017-08-28 12:22:51.778247  We used fancy piece of shit text
-Time: 2017-08-28 12:23:02.354121  Begin markovification
-Time: 2017-08-28 12:23:02.446693  We used fancy piece of shit text
-Time: 2017-08-28 12:44:46.046127  Begin markovification
-Time: 2017-08-28 12:44:46.157204  We used fancy piece of shit text
-Time: 2017-08-28 12:46:13.408401  Begin markovification
-Time: 2017-08-28 12:46:13.494962  We used fancy piece of shit text
+Time: 2017-08-28 14:19:06.613983  We used good old simple markov chain
+Time: 2017-08-28 14:19:06.629610  Begin markovification
+Time: 2017-08-28 14:19:06.707735  Generating text failed for the following reason:
+Time: 2017-08-28 14:19:06.723375  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
+Time: 2017-08-28 14:19:06.723375  Begin markovification
+Time: 2017-08-28 14:19:06.801500  Generating text failed for the following reason:
+Time: 2017-08-28 14:19:06.801500  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
+Time: 2017-08-28 14:19:45.847670  We used good old simple markov chain
+Time: 2017-08-28 14:19:45.863282  Begin markovification
+Time: 2017-08-28 14:19:45.941423  Generating text failed for the following reason:
+Time: 2017-08-28 14:19:45.957046  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
+Time: 2017-08-28 14:19:45.957046  Begin markovification
+Time: 2017-08-28 14:19:46.050781  Generating text failed for the following reason:
+Time: 2017-08-28 14:19:46.066406  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
+Time: 2017-08-28 14:20:38.097103  We used good old simple markov chain
+Time: 2017-08-28 14:20:38.112713  Begin markovification
+Time: 2017-08-28 14:20:38.190838  We used fancy piece of shit text

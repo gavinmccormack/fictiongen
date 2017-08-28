@@ -8,7 +8,7 @@ def load_book(filename="ulysses.txt"):
     path = os.path.join(os.path.dirname(__file__), 'books', filename)
     with codecs.open(path, "r", encoding='utf-8') as file:    # Codec module to avoid ascii encode/decode errors 
       bookText = file.read()
-    bookText = "".join(bookText).strip().encode()
+    bookText = "".join(bookText).strip()
     return bookText
   except:
     log.g_log_exception(log.PrintException())

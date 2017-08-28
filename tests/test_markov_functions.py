@@ -10,13 +10,12 @@ import json
 # Tests must start with test.
 # Basic Essential functionality:
 
-
 test_resources_directory = os.path.dirname(os.path.realpath(__file__))
 
 class test_books(TestCase):
 	def setUp(self):
 		# Database setup for tests
-		self.loaded_text = books.load_book(15,"ulysses.txt")[0:50]
+		self.loaded_text = books.load_book("ulysses.txt")[0:50]
 
 	def test_load_book_simple(self):
 		""" Test case only covers first 50 characters. Newlines and other encoding errors untested """
@@ -39,9 +38,9 @@ class test_books(TestCase):
 
 class test_internal_mk_functions(TestCase):
 	def setUp(self):
-		self.loaded_text_5_chars = books.load_book(15,"ulysses.txt")[0:5]
-		self.loaded_text_50_chars = books.load_book(15,"ulysses.txt")[0:50]
-		self.loaded_text_500_chars = books.load_book(15,"ulysses.txt")[0:500]
+		self.loaded_text_5_chars = books.load_book("ulysses.txt")[0:5]
+		self.loaded_text_50_chars = books.load_book("ulysses.txt")[0:50]
+		self.loaded_text_500_chars = books.load_book("ulysses.txt")[0:500]
 		self.model = mk_functions.build_model(self.loaded_text_50_chars, 1)
 		self.valid_model_path = os.path.join(test_resources_directory,'resources','model_json_1.json')
 
@@ -60,9 +59,19 @@ class test_internal_mk_functions(TestCase):
 class test_mk_functions_request_views(TestCase):
 	def setUp(self):
 		self.cli = Client()
+		self.request = self.cli.post('/mk/process/', 
+			{"marktext" : "I am the input text",
+			 "lines" : 5, 
+			 "stateSize" : 1,
+			 "grammar" : False
+			})
+		
 
-	def test_ma_process(self):
-		request = self.cli.post('/mk/process/', {"marktext" : "I am the input text", "lines" : 5, "ulysses" : 500,
-										"erotic" : 500, "stateSize" : 1, "grammar" : False })
-		self.assertEqual(request.status_code, 200)
-		print(request.content)
+	def test_ma_process_response(self):
+		self.assertEqual(self.request.status_code, 200)
+
+	def test_ma_process_content(self):
+		""" The markov generation pipe has failed """
+		# Returning false as a byte code is odd. So it'd be better if the
+		# status code changed.
+		self.assertNotEqual(self.request.content, b"False")
