@@ -6,6 +6,7 @@ import importlib
 import sys
 import os
 import markovify
+import re
 
 
 
@@ -13,12 +14,14 @@ importlib.reload(sys)
 nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk_data'))
 
 def tag_check(tag):
-  """ Replace certain types of words with bizarre food alternatives. Prototype; needs refactoring/fixing """
+  """ Replace certain types of words with bizarre food alternatives. 
+  I realise that the NLTK features more or less boil down to this inanity at the moment
+  Prototype; needs refactoring/fixing """
   gross_words_list = ['meat','ham'] #,'salami','pork','jelly','cake']
   gross_words_list_p = ["meat's"] #,"ham's","salami's","pork's","jelly's","cake's"]
-  singular = ['NN'] # NNP, NN 
-  plural =  ['NNS'] # bacons 'NNPS','NNS''
-  ownership = ['PRP$','POS'] # bacon's
+  singular = ['NNP'] # NNP, NN 
+  plural =  ['NNPS'] # bacons 'NNPS','NNS''
+  #ownership = ['PRP$','POS'] # bacon's
   if tag[1] in singular:
     return random.choice(gross_words_list) + "::"+tag[1]
   if tag[1] in plural:

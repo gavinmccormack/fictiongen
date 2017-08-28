@@ -18,3 +18,15 @@ Time: 2017-08-28 11:49:03.202017  Generating text failed for the following reaso
 Time: 2017-08-28 11:49:03.202017  Generating text failed for the following reason:
 Time: 2017-08-28 11:49:03.206020  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): local variable 'words' referenced before assignment
 Time: 2017-08-28 11:49:03.206020  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 29 "mtext = build_model(text,conf_state_size, int(posEnabled))"): local variable 'words' referenced before assignment
+Time: 2017-08-28 11:52:06.222380  Begin markovification
+Time: 2017-08-28 11:52:08.874177  We used fancy piece of shit text
+Time: 2017-08-28 11:55:36.942117  Begin markovification
+Time: 2017-08-28 11:55:39.631616  We used fancy piece of shit text
+Time: 2017-08-28 12:22:51.678176  Begin markovification
+Time: 2017-08-28 12:22:51.778247  We used fancy piece of shit text
+Time: 2017-08-28 12:23:02.354121  Begin markovification
+Time: 2017-08-28 12:23:02.446693  We used fancy piece of shit text
+Time: 2017-08-28 12:44:46.046127  Begin markovification
+Time: 2017-08-28 12:44:46.157204  We used fancy piece of shit text
+Time: 2017-08-28 12:46:13.408401  Begin markovification
+Time: 2017-08-28 12:46:13.494962  We used fancy piece of shit text

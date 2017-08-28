@@ -24,7 +24,7 @@ def markovify_text(text, lines, books, posEnabled, conf_state_size=2, line_break
   books = ["ulysses.txt"] # an array of ID's for books, but at the moment .txt refs
   try: 
     text = text + load_book()
-    text = text + load_book( "megarotic.txt" )
+    #text = text + load_book( "megarotic.txt" )
     text = text.decode('utf-8')
     mtext = build_model(text,conf_state_size, int(posEnabled))
     output = ""
