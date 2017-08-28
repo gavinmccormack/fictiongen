@@ -138,5 +138,5 @@ current_host = os.environ.get('HOSTNAME')
 
 if current_host == "mk.jamdigital.tech":
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-else: 
+else:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]

@@ -11,13 +11,13 @@ from dj.settings import MEDIA_ROOT
 
 def save_book_models(book, state_range=[2,5]):
   """ Takes a file object, creates several models and stores them alongside the original """
-  generated_model = mk_functions.build_model(book.read().encode('UTF-8'), 2) # add in loop for # of ranges
+  generated_model = mk_functions.build_model(book.read().decode('UTF-8'), 2)# add in loop for # of ranges
 
   filename = book.path + "_model_2.txt"
   book = File(book)
   with open(filename, 'w') as output_file:
     output_file.write(generated_model.to_json())
-    output_file.write(book.read())
+    output_file.write(book.read().decode('UTF-8'))
     output_file.write("End")
   return True
 
@@ -42,7 +42,7 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    save_book_models(self.file)     # would be nice to decode the books on upload so it's not a piat
+    save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)
 
   def __str__(self):

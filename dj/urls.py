@@ -26,9 +26,9 @@ urlpatterns = [
     url(r'^api/', include('restmark.urls')),
     #url(r'^image/', include('image.urls')),
     url(r'^mk/', include('markov_functions.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-if settings.DEBUG: # Explicit registration of django toolbar URLs 
+if settings.DEBUG: # Explicit registration of django toolbar URLs
     import debug_toolbar
     urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
