@@ -19,7 +19,7 @@ def ma_process(request):
             # marktext = book.file.read() # Should pass ID to markov and let it do the reading.
 
             markovedText = ma.markovify_text(
-                bookIDs=request.POST['bookid'],
+                bookIDs=request.POST['book_ids'],
                 lines=request.POST['lines'],
                 posEnabled=request.POST['posEnabled'],
                 stateSize=int(request.POST['stateSize']), )

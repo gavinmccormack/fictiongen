@@ -4,7 +4,7 @@ import sys
 import os
 from dj import development_tools  as log
 from markov_functions import nltk
-from .books import load_book
+from .books import load_active_books
 
 ##############################################################################
 ###### Markov FUnctions
@@ -35,7 +35,7 @@ def markovify_text(text="", lines=30, bookIDs=[], posEnabled=0, stateSize=2, lin
   # The verbose method of creating the dict is used so that we can have integer keys.
   books = dict([("ulysses.txt", 1)]) 
   try: 
-    text = load_book(1) #bookIDs)
+    text = load_active_books(bookIDs) 
     log.g_log_exception(text)
     mtext = build_model(text, stateSize, posEnabled)
     output = ""

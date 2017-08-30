@@ -16,31 +16,33 @@ import os
 test_resources_directory = os.path.dirname(os.path.realpath(__file__))
 
 # Database initialization
-
+db_run_once = False
 def init_test_database():
+	global db_run_once
+	if db_run_once:
+		pass
 	testUser = User.objects.create(username="testuser", password="test",is_superuser=True)
-
-	# Init files
-
-	print(os.path.dirname(__file__))
 	filePath = os.path.join(os.path.dirname(__file__), "resources", "test_book.txt")
 
 	print("Loading a test book file...")
 	print(filePath)
 	testFileContents = ""
 	with open(filePath,'r',encoding='utf-8') as f:
-		print(f.name)
 		testFileContents = f
 
 		# Init books
 		print("Creating a book object for testing...")
 		testBook = Book.objects.create(name="Book",user=testUser)
 		testBook.file.save("Test Book", File(testFileContents))
+		testBook.save()
+		print("Book ID: " + str(testBook.id))
 
 
 	print("Testing retrieval of book object...")
 	book = Book.objects.get(pk=1)
 	print(book)
+	db_run_once = True # Bit of a weird way of doing it.
+	print("Database Init finished")
 
 class test_books(TestCase):
 	def setUp(self):

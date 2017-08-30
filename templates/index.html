@@ -42,10 +42,10 @@ function testJSON() {
 function send_log(bookid) {
 
                     $.post('/mk/process/', {
-                        bookid: bookid        ,
+                        book_ids: {bookid}        ,
                         stateSize: get_statesize() ,
                         lines: get_lines(),
-                        grammar : get_grammar_kit(),
+                        posEnabled : get_grammar_kit(),
                         csrfmiddlewaretoken: "{{ csrf_token }}"}, function (data) {
                     $( ".response-field p" ).html(log_format(data));
                     });
