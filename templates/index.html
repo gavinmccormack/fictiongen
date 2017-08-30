@@ -8,159 +8,48 @@
 
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900,900i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<script language="JavaScript" src="http://mk.jamdigital.tech/static/unusedjs/bouncingimages.js"></script>
-<script>
-
-function log_format(text) {
-            time =  new Date().toJSON().slice(11,19)
-            return ("<br /><span class='console-time'>" + time + "</span>" + text)
-        }
-
-function get_lines() { return $('#line-num').val()  }
-function get_statesize() { return $('#state-size').val()  }
-function get_url() { return $('#url-entry').val()  }
-function get_grammar_kit() {
-    if ($('#grammar-entry').is(":checked"))
-    {return 1; } else { return 0;}}
-
-
-
-
-function testJSON() {
-  // Testing the JSON object as a method of sending the post request. this will change the data to be in the request body
-     $.ajax({
-        url: '/mk/processjson/',
-        type: 'POST',
-        data: { json: JSON.stringify({
-            name:"Bob"
-        })},
-        dataType: 'json'
-    }, function (data) {alert(data)});
-}
-
-
-function send_log() {
-                    bookIDs = []
-                    $('.booktile[data-book-active]').each(function() {
-                        bookIDs.push($(this).attr("bookid"));
-                    })
-                    console.log(bookIDs);
-                    $.post('/mk/process/', {
-                        book_ids: bookIDs,
-                        stateSize: get_statesize() ,
-                        lines: get_lines(),
-                        posEnabled : get_grammar_kit(),
-                        csrfmiddlewaretoken: "{{ csrf_token }}"}, function (data) {
-                    $( ".response-field p" ).html(log_format(data));
-                    });
-                 }
-
-function retrieve_text_from_url(query) {
-                    $.post('/steal-text/', { url : get_url() ,  csrfmiddlewaretoken: "{{ csrf_token }}"}, function (data) {
-                     $( "#markov-entry" ).append(log_format(data));
-                    });
-                 }
-
-$(document).ready(function() {
-                $("#add-url").keypress(function(event){
-                    if(event.which == 13){
-                        $("#add-url").click();
-                        return false;
-                    }
-                });
-
-                // Default Tab
-                document.getElementById("tab-plaintext").click();
-
-                $(".booktile").click(function(){
-                    
-                      if ($(this).attr('data-book-active')) {
-                        $(this).removeAttr('data-book-active'); // Toggle attribute
-                    } else {
-                        $(this).attr('data-book-active',"on");
-                    }
-                });
-
-        });
-
-    // Check if range sliders change and update percentage blend
-    function setPercentages () {
-                var ulSlide = parseInt(get_ulysses_slider());  // Turn these into integers. So some poor unnamed soul doesn't spend an hour wondering why basic maths doesn't work. It was me.
-                var erSlide = parseInt(get_ero_slider());
-                var total = ulSlide +  erSlide;
-                var percentageUly = ( ulSlide  / total * 100 ).toFixed(2);
-                var percentageEro = ( erSlide / total * 100  ).toFixed(2);
-                var percentage = percentageUly + "% / " + percentageEro + "%" ;
-                $('#percentage-counter').html(percentage);
-    };
-</script>
-
-
-<div id="main-container" >
-<div class="content container fill-height">
-<img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."></img>
-<h3 class="main-title">Non-Erotic Fiction Generator</h3>
-
-<ul class="tab">
-<li><a href="javascript:void(0)" id="tab-plaintext" class="tablinks">Plain Text</a></li>
-<li><a href="javascript:void(0)" id="tab-whatsapp" class="tablinks">Results</a></li>
-</ul>
-
-    <div id="plaintext" class="page-content">
-        <div class="setting col-md-12">
-            <small>In the mean time, getting this working with pre-generated models is the goal! Assuming that using a large pre-generated model doesn't take a long time for the 230mb txt file, it can probably be assumed it's fast enough.</small>
-        </div>
-
-        <div class="setting col-md-4">
-            <label>Number of Lines</label>
-            <input type="number"  class="form-control" id="line-num" value="30"/><br />
-        </div>
-
-        <div class="setting col-md-4">
-            <label>State Size</label>
-
-             <input type="number" class="form-control" id="state-size" value="2"/><br />
-             <small>More randomness at lower values, less at high values. You'll need more text for higher values.</small>
-         </div>
-
-        <div class="setting col-md-4">
-            <label>Enable the grammar checking</label>
-            <input type="checkbox" class="checkbox" id="grammar-entry"/><br/>
-            <small>Runs natural language processing to try and improve the quality of the content; this will take noticably longer if the body of text is larger. It does make it nicer though.</small>
-        </div>
-
-        <div class="submit col-md-4">
-            <p><button class="btn btn-primary" id="talk-button" onclick="send_log()"
-                title="Darling you got to let me know
-                        Should I stay or should I go?
-                        If you say that you are mine
-                        'll be here 'til the end of time
-                        So you got to let me know
-                        Should I stay or should I go?"> Go </button></p>
+<script language="JavaScript" src="/static/js/fictiongen.js"></script>
+<div id="main-container">
+    <div class="content container fill-height">
+        <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot.">
+        <h3 class="main-title">Non-Erotic Fiction Generator</h3>
+        <ul class="tab">
+            <li>
+                <a class="tablinks" href="javascript:void(0)" id="tab-plaintext">Plain Text</a>
+            </li>
+            <li>
+                <a class="tablinks" href="javascript:void(0)" id="tab-whatsapp">Results</a>
+            </li>
+        </ul>
+        <div class="page-content" id="plaintext">
+            <div class="setting col-md-4">
+                <label>Number of Lines</label> <input class="form-control" id="line-num" type="number" value="30"><br>
+            </div>
+            <div class="setting col-md-4">
+                <label>State Size</label> <input class="form-control" id="state-size" type="number" value="2"><br>
+                <small>More randomness at lower values, less at high values. You'll need more text for higher values.</small>
+            </div>
+            <div class="setting col-md-4">
+                <label>Enable the grammar checking</label> <input class="checkbox" id="grammar-entry" type="checkbox"><br>
+                <small>Runs natural language processing to try and improve the quality of the content; this will take noticably longer if the body of text is larger. It does make it nicer though.</small>
+            </div>
+            <div class="submit col-md-4">
+                <p><button class="btn btn-primary" id="talk-button" onclick="send_log()" title="Darling you got to let me know Should I stay or should I go? If you say that you are mine 'll be here 'til the end of time So you got to let me know Should I stay or should I go?">Go</button></p>
+            </div>
         </div>
     </div>
-</div>
-    <div id="results" class="page-content">
+    <div class="page-content" id="results">
         <div class="loader"></div>
         <div class="response-field-wrap">
-        <div id="notebook-head">
-        An erotic life..
+            <div id="notebook-head">
+                An erotic life..
+            </div>
+            <div class="response-field response-text container">
+                <p>The results are loading... or they might not be. I'm not really sure. But if you've pressed the right buttons something should come up eventually.</p>
+            </div>
         </div>
-        <div class="response-field response-text container">
-        <p> The results are loading... or they might not be. I'm not really sure. But if you've pressed the right buttons something should come up eventually.</p>
-        </div>
-        </div>
-    </div>
-
-    {% for book in books_query %}
-        <div class="booktile" bookid="{{ book.pk }}">{{ book.name }} </div>
-    {% endfor %}
-
-
-
+    </div>{% for book in books_query %}
+    <div class="booktile">
+        {{ book.name }}
+    </div>{% endfor %}
 </div>
-<!-- Footer -->
-
-
-
-<!-- Oh noes! He's put all his scripts in the page! noooo.... -->

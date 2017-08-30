@@ -27,7 +27,6 @@ def tag_check(tag):
   if tag[1] in plural:
     return random.choice(gross_words_list_p) + "::"+tag[1]
   else:
-    log.g_log_exception(tag,"NLTK_words.txt")
     return "::".join(tag)
 
   # NNP, NN
@@ -54,7 +53,7 @@ class POSifiedText(markovify.Text):
       words = words_cache
       return words
     except Exception as e:
-      log.g_log_exception("Test P Except", exception=True)
+      log.g_log_exception("TPos Exception", exception=True)
       return words
 
   def word_join(self, words):

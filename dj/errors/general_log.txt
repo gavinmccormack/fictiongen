@@ -38,3 +38,5 @@ Time: 2017-08-30 16:15:19.548280  Beginning markovification
 Time: 2017-08-30 16:15:19.585299  Type: Simple
 Time: 2017-08-30 16:15:52.386553  Beginning markovification
 Time: 2017-08-30 16:15:52.427083  Type: Simple
+Time: 2017-08-30 17:33:01.964323  Beginning markovification
+Time: 2017-08-30 17:33:01.970328  Type: Simple
