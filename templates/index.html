@@ -5,6 +5,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% bootstrap_messages %}
+{% load humanize %}
 
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900,900i" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -22,6 +23,16 @@
             </li>
         </ul>
         <div class="page-content" id="plaintext">
+
+            <div class="setting book-tiles col-md-12">
+                {% for book in books_query %}
+                    <div class="booktile" data-book-id={{ book.pk }}>
+                        <span class="book-name">{{ book.name }}</span> <br />
+                        <span class="book-lines">Words: {{ book.lines | intcomma}}</span>
+                    </div>
+                {% endfor %}
+
+            </div>
             <div class="setting col-md-4">
                 <label>Number of Lines</label> <input class="form-control" id="line-num" type="number" value="30"><br>
             </div>
@@ -48,8 +59,5 @@
                 <p>The results are loading... or they might not be. I'm not really sure. But if you've pressed the right buttons something should come up eventually.</p>
             </div>
         </div>
-    </div>{% for book in books_query %}
-    <div class="booktile" data-book-id={{ book.pk }}>
-        {{ book.name }}
-    </div>{% endfor %}
+    </div>
 </div>

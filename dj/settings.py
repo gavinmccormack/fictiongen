@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_forms_bootstrap',
     'restmark',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [

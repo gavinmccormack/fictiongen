@@ -10,8 +10,9 @@ from dj.settings import MEDIA_ROOT
 # from djutils.decorators import async     # Python 3 errors. Find alternative or fix lib
 
 def save_book_models(book, state_range=[2,5]):
+  from markov_functions.mk_functions import build_model
   """ Takes a file object, creates several models and stores them alongside the original """
-  generated_model = mk_functions.build_model(book.read().decode('UTF-8'), 2)# add in loop for # of ranges
+  generated_model = build_model(book.read().decode('UTF-8'), 2)# add in loop for # of ranges
 
   filename = book.path + "_model_2.txt"
   book = File(book)
@@ -35,6 +36,7 @@ class Book(models.Model):
   user = models.ForeignKey(User, unique=False,blank=True)
   created     = models.DateTimeField(editable=False,blank=True)
   modified    = models.DateTimeField(blank=True)
+  lines       = models.IntegerField(blank=True)
 
   def save(self, *args, **kwargs):
     ''' On save, update timestamps '''
@@ -42,7 +44,9 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    #save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
+    self.lines = len(self.file.read().decode('UTF-8','ignore').split(' '))
+    
+    save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)
 
   def __str__(self):

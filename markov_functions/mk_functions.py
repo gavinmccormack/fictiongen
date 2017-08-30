@@ -36,7 +36,7 @@ def markovify_text(text="", lines=30, bookIDs=[], posEnabled=0, stateSize=2, lin
   books = dict([("ulysses.txt", 1)]) 
   try: 
     text = load_active_books(bookIDs) 
-    mtext = build_model(text, stateSize, posEnabled)
+    mtext = build_model(text, stateSize, int(posEnabled))
     output = ""
     for i in range(int(lines)):
       sentence = str(mtext.make_sentence()) + " " # Spaces after full stop

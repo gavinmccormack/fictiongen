@@ -59,3 +59,28 @@ class POSifiedText(markovify.Text):
   def word_join(self, words):
     sentence = " ".join(word.split("::")[0] for word in words)
     return sentence
+
+
+
+### Name Replacemer below ( This is the non-nltk library version, nltk may have a better way of doing this !)
+
+def get_names():
+    with open(names_file,'r',encoding='utf-8') as name_source:
+        names = [name.strip() for name in name_source]
+        return names
+        
+def run_regex_union():
+    """ Matches names in names list and replaces with "Sally". """
+    nameList = get_names()
+    def replace_names(match_object):
+      name = match_object.group(0)
+      if name in nameList:
+          return "Sally"
+      else:
+          return name
+    with open(file,'r', encoding='utf-8') as f:
+        output = f.read()
+        output = re.sub('\w+', replace_names, output)
+
+    with open("fin-" +file,'w',encoding='utf-8') as f:
+        f.write(output)
