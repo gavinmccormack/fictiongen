@@ -15,11 +15,8 @@ def ma_process(request):
     context_instance=RequestContext(request)
     if request.method == 'POST':
         try:
-            # book = Book.objects.get(pk=(request.POST['bookid'])) 
-            # marktext = book.file.read() # Should pass ID to markov and let it do the reading.
-
             markovedText = ma.markovify_text(
-                bookIDs=request.POST['book_ids'],
+                bookIDs=request.POST.getlist('book_ids[]'),
                 lines=request.POST['lines'],
                 posEnabled=request.POST['posEnabled'],
                 stateSize=int(request.POST['stateSize']), )

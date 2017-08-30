@@ -36,7 +36,6 @@ def markovify_text(text="", lines=30, bookIDs=[], posEnabled=0, stateSize=2, lin
   books = dict([("ulysses.txt", 1)]) 
   try: 
     text = load_active_books(bookIDs) 
-    log.g_log_exception(text)
     mtext = build_model(text, stateSize, posEnabled)
     output = ""
     for i in range(int(lines)):

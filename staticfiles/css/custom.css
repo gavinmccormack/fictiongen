@@ -308,3 +308,17 @@ textarea {padding:10px;}
 #canny-sliders {
   background:#2c2c2c;
 }
+
+.booktile {
+  min-height:40px;
+  min-width:40px;
+  display:inline-block;
+
+    border: 1px solid #6d0a0a;
+    background-color: #d66767;
+    color:white;
+}
+
+.booktile[data-book-active] {
+  background:green;
+}

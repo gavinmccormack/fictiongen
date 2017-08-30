@@ -7,12 +7,8 @@ from markov_functions.models import Book
 
 def load_book(bookID=False):
   try:
-    
-    log.g_log_exception(bookID)
-    book = Book.objects.get(pk=bookID) #bookID)
-
-    #log.g_log_exception("Book: " + book)
-    contents = book.file.read().decode()
+    book = Book.objects.get(pk=bookID) 
+    contents = book.file.read().decode('utf-8','ignore')
     return str(contents)
   except:
     log.g_log_exception(log.PrintException())
@@ -22,5 +18,5 @@ def load_active_books(listOfBooks):
   """ Takes a list of books by ID and loads them into a text string """
   text = ""
   for book in listOfBooks:
-    text += load_book(book)
+    text = text + load_book(book)
   return text

@@ -39,10 +39,14 @@ function testJSON() {
 }
 
 
-function send_log(bookid) {
-
+function send_log() {
+                    bookIDs = []
+                    $('.booktile[data-book-active]').each(function() {
+                        bookIDs.push($(this).attr("bookid"));
+                    })
+                    console.log(bookIDs);
                     $.post('/mk/process/', {
-                        book_ids: {bookid}        ,
+                        book_ids: bookIDs,
                         stateSize: get_statesize() ,
                         lines: get_lines(),
                         posEnabled : get_grammar_kit(),
@@ -69,8 +73,12 @@ $(document).ready(function() {
                 document.getElementById("tab-plaintext").click();
 
                 $(".booktile").click(function(){
-                    $(".booktile").removeClass('markov-entry');
-                    $(this).addClass('markov-entry');
+                    
+                      if ($(this).attr('data-book-active')) {
+                        $(this).removeAttr('data-book-active'); // Toggle attribute
+                    } else {
+                        $(this).attr('data-book-active',"on");
+                    }
                 });
 
         });
@@ -111,7 +119,7 @@ $(document).ready(function() {
         <div class="setting col-md-4">
             <label>State Size</label>
 
-             <input type="number" class="form-control" id="state-size" value="4"/><br />
+             <input type="number" class="form-control" id="state-size" value="2"/><br />
              <small>More randomness at lower values, less at high values. You'll need more text for higher values.</small>
          </div>
 
@@ -122,7 +130,7 @@ $(document).ready(function() {
         </div>
 
         <div class="submit col-md-4">
-            <p><button class="btn btn-primary" id="talk-button" onclick="send_log($('.markov-entry').attr('bookid'))"
+            <p><button class="btn btn-primary" id="talk-button" onclick="send_log()"
                 title="Darling you got to let me know
                         Should I stay or should I go?
                         If you say that you are mine
@@ -145,7 +153,7 @@ $(document).ready(function() {
     </div>
 
     {% for book in books_query %}
-        <div class="booktile" bookid="{{ book.pk }}" style="width:10px;height:10px;background-color:red;"></div>
+        <div class="booktile" bookid="{{ book.pk }}">{{ book.name }} </div>
     {% endfor %}
 
 
