@@ -30,7 +30,7 @@ function testJSON() {
 function send_log() {
                     bookIDs = []
                     $('.booktile[data-book-active]').each(function() {
-                        bookIDs.push($(this).attr("bookid"));
+                        bookIDs.push($(this).attr("data-book-id"));
                     })
                     console.log(bookIDs);
                     $.post('/mk/process/', {

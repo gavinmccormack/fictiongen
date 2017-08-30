@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>{% for book in books_query %}
-    <div class="booktile">
+    <div class="booktile" data-book-id={{ book.pk }}>
         {{ book.name }}
     </div>{% endfor %}
 </div>
