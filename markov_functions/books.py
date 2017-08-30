@@ -2,16 +2,17 @@
 from dj import development_tools  as log
 import os
 import codecs 
+from markov_functions.models import Book
 
-def load_book(filename="ulysses.txt"):
+
+def load_book(bookID=False):
   try:
-    path = os.path.join(os.path.dirname(__file__), 'books', filename)
-    with codecs.open(path, "r", encoding='utf-8') as file:    # Codec module to avoid ascii encode/decode errors 
-      bookText = file.read()
-    bookText = "".join(bookText).strip()
-    return bookText
+    book = Book.objects.get(pk=1) #bookID)
+    contents = book.file.read().encode('utf-8')
+    return str(contents)
   except:
     log.g_log_exception(log.PrintException())
+    return "Failed"
 
 def load_active_books(listOfBooks):
   """ Takes a list of books by ID and loads them into a text string """

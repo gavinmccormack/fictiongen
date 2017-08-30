@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from . import mk_functions
+#from .mk_functions import build_model
 from django.core.files import File
 from django.core.files.base import ContentFile
 from dj.settings import MEDIA_ROOT
@@ -30,11 +30,11 @@ def get_book_directory_path(instance, filename):
   return 'user/{0}/{1}'.format(instance.user.id, filename)
 
 class Book(models.Model):
-  name = models.CharField(max_length=30)
-  file = models.FileField(upload_to=get_book_directory_path)
-  user = models.ForeignKey(User, unique=False)
-  created     = models.DateTimeField(editable=False)
-  modified    = models.DateTimeField()
+  name = models.CharField(max_length=30,blank=True)
+  file = models.FileField(upload_to=get_book_directory_path,blank=True)
+  user = models.ForeignKey(User, unique=False,blank=True)
+  created     = models.DateTimeField(editable=False,blank=True)
+  modified    = models.DateTimeField(blank=True)
 
   def save(self, *args, **kwargs):
     ''' On save, update timestamps '''
@@ -42,7 +42,7 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
+    #save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)
 
   def __str__(self):

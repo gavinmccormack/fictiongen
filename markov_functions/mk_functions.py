@@ -10,6 +10,7 @@ from .books import load_book
 ###### Markov FUnctions
 
 def build_model(text, conf_state_size, posEnabled=False):
+  posEnabled = False
   if posEnabled:
     log.g_log_exception("Type: NLTK")
     return (nltk.POSifiedText(text, state_size=conf_state_size))
@@ -27,16 +28,16 @@ def get_saved_model(bookID, testingFilePath):
   with open(testingFilePath, 'rb') as f:
     f.read()
 
-def markovify_text(text, lines, books, posEnabled, conf_state_size=2, line_breaks=3 ):
+def markovify_text(text="", lines=30, bookIDs=[], posEnabled=0, stateSize=2, line_breaks=3 ):
   """ Method needs refactored particularly in light of proper book models """
   log.g_log_exception("Beginning markovification")
   # an array of ID's for books, but at the moment .txt refs
   # The verbose method of creating the dict is used so that we can have integer keys.
   books = dict([("ulysses.txt", 1)]) 
   try: 
-    text = text.decode('utf-8') # text comes in as bytecode
-    text = text + load_book()
-    mtext = build_model(text,conf_state_size, int(posEnabled))
+    text = load_book(1) #bookIDs)
+    log.g_log_exception(text)
+    mtext = build_model(text, stateSize, posEnabled)
     output = ""
     for i in range(int(lines)):
       sentence = str(mtext.make_sentence()) + " " # Spaces after full stop

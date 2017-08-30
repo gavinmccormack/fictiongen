@@ -15,13 +15,14 @@ def ma_process(request):
     context_instance=RequestContext(request)
     if request.method == 'POST':
         try:
-            book = Book.objects.get(pk=(request.POST['bookid']))
-            marktext = book.file.read()
+            # book = Book.objects.get(pk=(request.POST['bookid'])) 
+            # marktext = book.file.read() # Should pass ID to markov and let it do the reading.
+
             markovedText = ma.markovify_text(
-                marktext,
-                request.POST['lines'],
-                request.POST['grammar'],
-                int(request.POST['stateSize']), )
+                bookIDs=request.POST['bookid'],
+                lines=request.POST['lines'],
+                posEnabled=request.POST['posEnabled'],
+                stateSize=int(request.POST['stateSize']), )
             return HttpResponse(markovedText)#.encode('utf-8'))
         except Exception as e:
             return HttpResponse(log.PrintException())
@@ -34,13 +35,12 @@ def ma_processjson(request):
   if request.method == 'POST':
     try:
       markovedText = ma.markovify_text(
-        request.POST['marktext'].encode('utf-8'),
         request.POST['lines'],
         request.POST['ulysses'],
         request.POST['erotic'],
         request.POST['grammar'],
         int(request.POST['stateSize']), )
-      return HttpResponse(markovedText)#.encode('utf-8'))
+      return HttpResponse(markovedText)
     except Exception as e:
       return HttpResponse(request)
   return HttpResponse("Request was not sent as POST request.")

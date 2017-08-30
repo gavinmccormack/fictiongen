@@ -1,17 +1,29 @@
-Time: 2017-08-28 14:19:06.613983  We used good old simple markov chain
-Time: 2017-08-28 14:19:06.629610  Begin markovification
-Time: 2017-08-28 14:19:06.707735  Generating text failed for the following reason:
-Time: 2017-08-28 14:19:06.723375  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
-Time: 2017-08-28 14:19:06.723375  Begin markovification
-Time: 2017-08-28 14:19:06.801500  Generating text failed for the following reason:
-Time: 2017-08-28 14:19:06.801500  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
-Time: 2017-08-28 14:19:45.847670  We used good old simple markov chain
-Time: 2017-08-28 14:19:45.863282  Begin markovification
-Time: 2017-08-28 14:19:45.941423  Generating text failed for the following reason:
-Time: 2017-08-28 14:19:45.957046  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
-Time: 2017-08-28 14:19:45.957046  Begin markovification
-Time: 2017-08-28 14:19:46.050781  Generating text failed for the following reason:
-Time: 2017-08-28 14:19:46.066406  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 26 "text = text + load_book().decode('utf-8')"): 'str' object has no attribute 'decode'
-Time: 2017-08-28 14:20:38.097103  We used good old simple markov chain
-Time: 2017-08-28 14:20:38.112713  Begin markovification
-Time: 2017-08-28 14:20:38.190838  We used fancy piece of shit text
+Time: 2017-08-30 11:10:54.364111  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:10:54.414621  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:10:54.464926  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:10:54.651087  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.300774  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.359970  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.452913  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.615054  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.629065  Beginning markovification
+Time: 2017-08-30 11:12:31.635071  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.641073  Failed
+Time: 2017-08-30 11:12:31.646077  Type: Simple
+Time: 2017-08-30 11:12:31.749384  Beginning markovification
+Time: 2017-08-30 11:12:31.756394  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:12:31.762393  Failed
+Time: 2017-08-30 11:12:31.767381  Type: Simple
+Time: 2017-08-30 11:13:09.546761  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.598319  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.656767  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.788909  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.794900  Type: Simple
+Time: 2017-08-30 11:13:09.862970  Beginning markovification
+Time: 2017-08-30 11:13:09.870267  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.877258  Failed
+Time: 2017-08-30 11:13:09.883275  Type: Simple
+Time: 2017-08-30 11:13:09.939193  Beginning markovification
+Time: 2017-08-30 11:13:09.947218  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 10 "book = Book.objects.get(pk=1) #bookID)"): Book matching query does not exist.
+Time: 2017-08-30 11:13:09.953707  Failed
+Time: 2017-08-30 11:13:09.962234  Type: Simple
