@@ -11,17 +11,8 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script language="JavaScript" src="/static/js/fictiongen.js"></script>
 <div id="main-container">
-    <div class="content container fill-height">
-        <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot.">
-        <h3 class="main-title">Non-Erotic Fiction Generator</h3>
-        <ul class="tab">
-            <li>
-                <a class="tablinks" href="javascript:void(0)" id="tab-plaintext">Plain Text</a>
-            </li>
-            <li>
-                <a class="tablinks" href="javascript:void(0)" id="tab-whatsapp">Results</a>
-            </li>
-        </ul>
+    <div class="content  fill-height">
+        <!-- <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."> -->
         <div class="page-content" id="plaintext">
 
             <div class="setting book-tiles col-md-12">
@@ -38,11 +29,9 @@
             </div>
             <div class="setting col-md-4">
                 <label>State Size</label> <input class="form-control" id="state-size" type="number" value="2"><br>
-                <small>More randomness at lower values, less at high values. You'll need more text for higher values.</small>
             </div>
             <div class="setting col-md-4">
                 <label>Enable the grammar checking</label> <input class="checkbox" id="grammar-entry" type="checkbox"><br>
-                <small>Runs natural language processing to try and improve the quality of the content; this will take noticably longer if the body of text is larger. It does make it nicer though.</small>
             </div>
             <div class="submit col-md-4">
                 <p><button class="btn btn-primary" id="talk-button" onclick="send_log()" title="Darling you got to let me know Should I stay or should I go? If you say that you are mine 'll be here 'til the end of time So you got to let me know Should I stay or should I go?">Go</button></p>
@@ -50,13 +39,14 @@
         </div>
     </div>
     <div class="page-content" id="results">
-        <div class="loader"></div>
-        <div class="response-field-wrap">
-            <div id="notebook-head">
-                An erotic life..
-            </div>
-            <div class="response-field response-text container">
+
+                <div class="loading-notice">
                 <p>The results are loading... or they might not be. I'm not really sure. But if you've pressed the right buttons something should come up eventually.</p>
+                </div>
+        <div class="response-field-wrap">
+
+            <div class="response-field response-text container">
+                <p></p>
             </div>
         </div>
     </div>

@@ -2,25 +2,40 @@
 
 /* Typography */
 
+html body {
+  color:white;
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-family:'Lobster Two' !important;
 }
 
 label {
     font-family:'Lobster Two';
+    font-size:1.2rem;
+    letter-spacing:1px;
+    font-weight:normal;
 }
 
 p {
     font-family: 'Roboto';
     font-weight: lighter;
     font-size: 1.2rem;
+    color:white;
 }
 
 #main-container {
-    margin-top:20px;
-    padding:10px;
-    max-width: 1200px;
+    padding:0 150px;
     margin: 0 auto;
+    position:relative;
+
+    background-color:rgba(255,255,255,1);
+    
+    background-image: url(/static/images/fickgen-book.svg);
+    background-size: 100%;
+    background-repeat:no-repeat;
+    min-height:100vh;
+    padding-top:450px;
 }
 
 /* Background */
@@ -105,26 +120,11 @@ textarea {
     min-height:400px;
 }
 
-.response-field-wrap {
-    padding: 20px;
-    background-color:rgba(255,255,255,0.7);
-    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
-    border-top-right-radius: 25px;
-    text-align:center;
-    margin:0 auto;
-    max-width:800px;
-    position:relative;
-}
+
 
 #tab-whatsapp {
   display:none;
 }
-.response-text {
-      margin:0 auto;
-    max-width:700px;
-    letter-spacing: 1px;
-}
-
 #notebook-head {
       font-size: 12px;
     position: absolute;
@@ -329,4 +329,44 @@ textarea {padding:10px;}
 
 .book-lines{
   font-size:1.2rem;
+}
+
+.response-field-wrap {
+    padding: 20px;
+    text-align:center;
+    margin:0 auto;
+    max-width:800px;
+    position:relative;
+    display:none;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}
+
+
+.response-text {
+      margin:0 auto;
+    max-width:700px;
+    letter-spacing: 1px;
+    display:none;
+    background: rgba(0,0,0,0.7);
+
+    z-index: 5;
+    height: 100vh;
+}
+
+
+.loading-notice {
+  border-radius:15px;
+  background:rgba(0,0,0,0.7);
+  padding:1rem 2rem;
+  position:fixed;
+  top:-200px;
+  left:0;
+  right:0;
+  max-width:500px;
+  text-align:center;
+  margin:0 auto;
 }

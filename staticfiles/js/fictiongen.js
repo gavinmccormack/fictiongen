@@ -1,9 +1,9 @@
 
+// Retrieval functions for values
 function log_format(text) {
             time =  new Date().toJSON().slice(11,19)
             return ("<br /><span class='console-time'>" + time + "</span>" + text)
         }
-
 function get_lines() { return $('#line-num').val()  }
 function get_statesize() { return $('#state-size').val()  }
 function get_url() { return $('#url-entry').val()  }
@@ -14,20 +14,12 @@ function get_grammar_kit() {
 
 
 
-function testJSON() {
-  // Testing the JSON object as a method of sending the post request. this will change the data to be in the request body
-     $.ajax({
-        url: '/mk/processjson/',
-        type: 'POST',
-        data: { json: JSON.stringify({
-            name:"Bob"
-        })},
-        dataType: 'json'
-    }, function (data) {alert(data)});
+function activate_loading_notice() {
+    $('.loading-notice').animate({ top:'100px' },'slow');
+    $('.response-field-wrap').css('display','block');
 }
 
-
-function send_log() {
+function send_log() { // Rename this function
                     bookIDs = []
                     $('.booktile[data-book-active]').each(function() {
                         bookIDs.push($(this).attr("data-book-id"));
@@ -39,7 +31,14 @@ function send_log() {
                         lines: get_lines(),
                         posEnabled : get_grammar_kit(),
                         csrfmiddlewaretoken: "{{ csrf_token }}"}, function (data) {
-                    $( ".response-field p" ).html(log_format(data));
+                     $( ".response-field p" ).html(log_format(data));
+                     activate_loading_notice();
+                    })
+                    .always(function() {
+                        activate_loading_notice();
+                    })
+                    .done(function() {
+                        $('.response-text').css('display','block')
                     });
                  }
 
