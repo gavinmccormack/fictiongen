@@ -17,7 +17,7 @@
 
             <div class="setting book-tiles col-md-12">
                 {% for book in books_query %}
-                    <div class="booktile" data-book-id={{ book.pk }}>
+                    <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100">
                         <span class="book-name">{{ book.name }}</span> <br />
                         <span class="book-lines">Words: {{ book.lines | intcomma}}</span>
                     </div>

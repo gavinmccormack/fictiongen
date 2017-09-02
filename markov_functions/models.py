@@ -37,6 +37,7 @@ class Book(models.Model):
   created     = models.DateTimeField(editable=False,blank=True)
   modified    = models.DateTimeField(blank=True)
   lines       = models.IntegerField(blank=True)
+  sentences      = models.IntegerField(blank=True)
 
   def save(self, *args, **kwargs):
     ''' On save, update timestamps '''
@@ -44,7 +45,9 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    self.lines = len(self.file.read().decode('UTF-8','ignore').split(' '))
+    fileContents = self.file.read().decode('UTF-8','ignore')
+    self.lines = len(fileContents.split(' '))
+    self.sentences = len(fileContents.split('.'))
     
     save_book_models(self.file)     # would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)

@@ -43,6 +43,10 @@ class POSifiedText(markovify.Text):
   def word_split(self, sentence):
     try:
       words = re.split(self.word_split_pattern, sentence)
+      words = [ "::".join(tag) for tag in nltk.pos_tag(words) ]
+      return words
+
+      ## The below is the "tag check" method.
       words_cache = []
       for tag in nltk.pos_tag(words):
           try:
