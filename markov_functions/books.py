@@ -2,8 +2,9 @@
 from dj import development_tools  as log
 import os
 import codecs 
-from markov_functions.models import Book
 import markovify
+from django.core.files import File
+from django.core.files.base import ContentFile
 
 ## These should maybe be part of models.py
 def build_model(text, conf_state_size, posEnabled=False):
@@ -21,9 +22,14 @@ def build_model(text, conf_state_size, posEnabled=False):
 
 def get_book_model(bookID, stateSize, posEnabled):
   try:
+    Book = get_model('core', 'Book') # Lazy model import to avoid circularity.
     book = Book.objects.get(pk=bookID) 
-    contents = book.file.read().decode('utf-8','ignore')
-    model = build_model(contents, int(stateSize), posEnabled=posEnabled)
+    prebuilt_model = book.models.read()
+    if prebuilt_model != "":
+      model = prebuilt_model
+    else:
+      contents = book.file.read().decode('utf-8','ignore')
+      model = build_model(contents, int(stateSize), posEnabled=posEnabled)
     return model
   except:
     log.g_log_exception(log.PrintException())
@@ -43,3 +49,15 @@ def load_active_books(active_books, stateSize, posEnabled):
   except:
     log.g_log_exception(log.PrintException())
     return "Failed"
+
+
+
+def save_book_models(self, state_range=[2,5]):
+  """ Takes a file object, creates several models and stores them alongside the original """
+  generated_model = build_model(self.file.read().decode('UTF-8'), 2)# add in loop for # of ranges
+  filename = self.file.name + "_model_2.txt"
+  print(filename)
+  print(generated_model)
+  json_model = generated_model.to_json()
+  return filename, ContentFile(json_model)
+  return filename, json_model

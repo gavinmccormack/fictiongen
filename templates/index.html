@@ -17,9 +17,11 @@
 
             <div class="setting book-tiles col-md-12">
                 {% for book in books_query %}
-                    <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100">
+                    <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100" data-text-words="{{ book.lines }}">
                         <span class="book-name">{{ book.name }}</span> <br />
                         <span class="book-lines">Words: {{ book.lines | intcomma}}</span>
+                        <span class="book-power"></span>
+                        <input class="book-weight" type="range" min="0" max="100">
                     </div>
                 {% endfor %}
 
@@ -46,6 +48,7 @@
         <div class="response-field-wrap">
 
             <div class="response-field response-text container">
+                <div class="close-text"></div>
                 <p></p>
             </div>
         </div>
