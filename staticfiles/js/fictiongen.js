@@ -51,6 +51,7 @@ function ui_activate_results_pane() {
 
 function ui_deactivate_results_pane() {
     $('.response-field-wrap').css('display','none');
+    $('.response-text').css('display','none');
 }
 
 

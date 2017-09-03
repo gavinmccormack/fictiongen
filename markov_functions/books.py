@@ -5,11 +5,12 @@ import codecs
 import markovify
 from django.core.files import File
 from django.core.files.base import ContentFile
+from django.apps import apps
+from markov_functions import nltk
 
 ## These should maybe be part of models.py
 def build_model(text, conf_state_size, posEnabled=False):
     try:
-      posEnabled = False
       if posEnabled:
         log.g_log_exception("Type: NLTK")
         return (nltk.POSifiedText(text, state_size=conf_state_size))
@@ -22,9 +23,10 @@ def build_model(text, conf_state_size, posEnabled=False):
 
 def get_book_model(bookID, stateSize, posEnabled):
   try:
-    Book = get_model('core', 'Book') # Lazy model import to avoid circularity.
+    Book = apps.get_model('markov_functions', 'Book') # Lazy model import to avoid circularity.
     book = Book.objects.get(pk=bookID) 
-    prebuilt_model = book.models.read()
+    prebuilt_model = "" # book.model.read()
+    # Need to fix prebuild model to use the below.
     if prebuilt_model != "":
       model = prebuilt_model
     else:
