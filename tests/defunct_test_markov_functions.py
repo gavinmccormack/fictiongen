@@ -71,9 +71,7 @@ class test_books(TestCase):
 
 class test_internal_mk_functions(TestCase):
 	def setUp(self):
-		self.loaded_text_5_chars = books.load_book(1)[0:5]
-		#self.loaded_text_50_chars = books.load_book(1)[0:50]
-		#self.loaded_text_500_chars = books.load_book(1)[0:500]
+		self.loaded_text_5_chars = books.load_active_books({32,100})[0:5]
 		self.model = mk_functions.build_model(self.loaded_text_5_chars, 1)
 		self.valid_model_path = os.path.join(test_resources_directory,'resources','model_json_1.json')
 		init_test_database()

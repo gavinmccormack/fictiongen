@@ -35,3 +35,13 @@ The front end is primarily based around post requests and ajax functionality, an
 ## Other
 
 * Database is currently SQLlite, will need updating as primary prototype did not involve database usage.
+
+
+## Package installations
+These are likely only required for windows.
+
+pip3 install backports.csv=1.0
+
+numpywith mkl from wheel http://www.lfd.uci.edu/~gohlke/pythonlibs/
+scipy from wheel http://www.lfd.uci.edu/~gohlke/pythonlibs/
+and then don't use windows because these libraries are a mess on there. 

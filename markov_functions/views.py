@@ -17,20 +17,14 @@ def ma_process(request):
     if request.method == 'POST':
         try:
             request_data = json.loads(request.body)
-            print("Request Data")
-            print(request_data)
-            markovedText = ma.markovify_text(
-                bookIDs=request_data['book_ids'],
-                lines=request_data['lines'],
-                posEnabled=request_data['posEnabled'],
-                stateSize=request_data['stateSize'] )
-            return HttpResponse(json.dumps(markovedText))#.encode('utf-8'))
+            stateSize = int( request_data['stateSize'] )
+            posEnabled = ( request_data['posEnabled'] == "True" ) # A bit iffy
+            lines = int(request_data['lines'])
+            fictionObj = ma.fictionObject(books=request_data['book_ids'], stateSize=stateSize )
+            print("Fiction Object Created")
+            markovedText = fictionObj.get_text( lines=lines, posEnabled=posEnabled)
+            print("Text Markoved")
+            return HttpResponse(json.dumps(markovedText))
         except Exception as e:
             return HttpResponse(log.PrintException())
     return HttpResponse("Request was not sent as POST request.")
-
-
-#@csrf_exempt
-#def steal_text(request):
-#   response = steal_from_url(request.POST['url'])
-#   return HttpResponse(response)

@@ -6,7 +6,7 @@ import markovify
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.apps import apps
-from markov_functions import nltk
+from markov_functions.text_processors import mk_nltk
 
 ## These should maybe be part of models.py
 def build_model(text, conf_state_size, posEnabled=False):
