@@ -1,25 +1,18 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from restmark.serializers import UserSerializer, GroupSerializer, BookSerializer
+from rest_framework import status
+from rest_framework.decorators import api_view, detail_route
+from rest_framework.response import Response
+from rest_framework import viewsets, renderers
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from markov_functions.models import Book
+from markov_functions.serializers import BookModelSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
-  """
-  API endpoint for viewing/edit of users
-  """
-  queryset = User.objects.all().order_by('-date_joined')
-  serializer_class = UserSerializer
 
-class GroupViewSet(viewsets.ModelViewSet):
-  """
-  API endpoint for groups to be viewed/edited
-  """
-  queryset = Group.objects.all()
-  serializer_class = GroupSerializer
 
-class GroupViewSet(viewsets.ModelViewSet):
-  """
-  API endpoint for books to be viewed/edited
-  """
-  queryset = Book.objects.all()
-  serializer_class = BookSerializer
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookModelSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)

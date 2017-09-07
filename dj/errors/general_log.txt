@@ -46,3 +46,82 @@ Time: 2017-09-06 01:10:11.820298  Beginning markovification
 Time: 2017-09-06 01:10:11.836314  Type: Simple
 Time: 2017-09-06 01:10:11.878302  Type: Simple
 Time: 2017-09-06 01:10:15.893267  Type: Simple
+Time: 2017-09-06 14:14:39.014600  Beginning markovification
+Time: 2017-09-06 14:14:39.015600  Type: Simple
+Time: 2017-09-06 14:14:39.071600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'E:\\Programming\\fictiongen\\fictiongen\\media\\user\\1\\St_James_Bible.txt'
+Time: 2017-09-06 14:14:39.073600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-09-06 14:14:39.075600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-09-06 14:14:56.826600  Beginning markovification
+Time: 2017-09-06 14:14:56.827600  Type: Simple
+Time: 2017-09-06 14:14:56.830600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'E:\\Programming\\fictiongen\\fictiongen\\media\\user\\1\\St_James_Bible.txt'
+Time: 2017-09-06 14:14:56.831600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-09-06 14:14:56.831600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-09-06 14:15:48.692600  Beginning markovification
+Time: 2017-09-06 14:15:48.693600  Type: Simple
+Time: 2017-09-06 14:15:48.695600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'E:\\Programming\\fictiongen\\fictiongen\\media\\user\\1\\St_James_Bible.txt'
+Time: 2017-09-06 14:15:48.696600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-09-06 14:15:48.696600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-09-06 14:17:48.049600  Beginning markovification
+Time: 2017-09-06 14:17:48.050600  Type: Simple
+Time: 2017-09-06 14:37:45.872600  Beginning markovification
+Time: 2017-09-06 14:37:45.872600  Type: Simple
+Time: 2017-09-06 14:37:45.874600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'E:\\Programming\\fictiongen\\fictiongen\\media\\user\\1\\St_James_Bible.txt'
+Time: 2017-09-06 14:37:45.874600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-09-06 14:37:45.875600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-09-06 14:42:09.214600  Beginning markovification
+Time: 2017-09-06 14:42:09.214600  Type: Simple
+Time: 2017-09-06 14:42:09.216600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'E:\\Programming\\fictiongen\\fictiongen\\media\\user\\1\\St_James_Bible.txt'
+Time: 2017-09-06 14:42:09.217600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-09-06 14:42:09.217600  EXCEPTION IN (E:\Programming\fictiongen\fictiongen\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-09-06 15:14:31.711600  Type: Simple
+Time: 2017-09-06 15:17:40.825600  Type: Simple
+Time: 2017-09-06 15:19:23.041600  Beginning markovification
+Time: 2017-09-06 15:19:23.042600  Type: Simple
+Time: 2017-09-06 15:19:23.048600  Type: Simple
+Time: 2017-09-06 15:19:36.860600  Beginning markovification
+Time: 2017-09-06 15:19:36.861600  Type: Simple
+Time: 2017-09-06 15:19:36.866600  Type: Simple
+Time: 2017-09-06 15:19:43.883600  Beginning markovification
+Time: 2017-09-06 15:19:43.884600  Type: Simple
+Time: 2017-09-06 15:19:43.889600  Type: Simple
+Time: 2017-09-06 15:19:45.693600  Beginning markovification
+Time: 2017-09-06 15:19:45.708600  Type: Simple
+Time: 2017-09-06 15:19:45.733600  Type: Simple
+Time: 2017-09-06 15:19:54.082600  Beginning markovification
+Time: 2017-09-06 15:19:54.083600  Type: Simple
+Time: 2017-09-06 15:19:54.089600  Type: Simple
+Time: 2017-09-06 15:19:55.235600  Beginning markovification
+Time: 2017-09-06 15:19:55.260600  Type: Simple
+Time: 2017-09-06 15:19:55.332600  Type: Simple
+Time: 2017-09-06 15:47:36.559600  Beginning markovification
+Time: 2017-09-06 15:47:36.560600  Type: Simple
+Time: 2017-09-06 15:47:36.567600  Type: Simple
+Time: 2017-09-06 15:47:43.614600  Beginning markovification
+Time: 2017-09-06 15:47:43.614600  Type: Simple
+Time: 2017-09-06 15:47:43.619600  Type: Simple
+Time: 2017-09-06 15:47:45.216600  Beginning markovification
+Time: 2017-09-06 15:47:45.245600  Type: Simple
+Time: 2017-09-06 15:47:45.319600  Type: Simple
+Time: 2017-09-06 15:47:49.142600  Beginning markovification
+Time: 2017-09-06 15:47:49.143600  Type: Simple
+Time: 2017-09-06 15:47:49.148600  Type: Simple
+Time: 2017-09-06 15:47:53.595600  Beginning markovification
+Time: 2017-09-06 15:47:53.595600  Type: Simple
+Time: 2017-09-06 15:47:56.193600  Beginning markovification
+Time: 2017-09-06 15:47:56.193600  Type: Simple
+Time: 2017-09-06 15:48:07.658600  Beginning markovification
+Time: 2017-09-06 15:48:07.659600  Type: Simple
+Time: 2017-09-06 15:48:07.664600  Type: Simple
+Time: 2017-09-06 16:01:13.140600  Beginning markovification
+Time: 2017-09-06 16:01:13.141600  Type: Simple
+Time: 2017-09-06 16:01:21.028600  Beginning markovification
+Time: 2017-09-06 16:01:21.029600  Type: Simple
+Time: 2017-09-06 16:01:21.033600  Type: Simple
+Time: 2017-09-06 16:02:06.923600  Beginning markovification
+Time: 2017-09-06 16:02:06.924600  Type: Simple
+Time: 2017-09-06 16:02:14.937600  Beginning markovification
+Time: 2017-09-06 16:02:14.937600  Type: Simple
+Time: 2017-09-06 16:02:14.943600  Type: Simple
+Time: 2017-09-06 16:10:34.472600  Beginning markovification
+Time: 2017-09-06 16:10:34.472600  Type: Simple
+Time: 2017-09-06 16:10:34.478600  Type: Simple
