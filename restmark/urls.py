@@ -9,7 +9,7 @@ from rest_framework import serializers, viewsets
 router = DefaultRouter()
 router.register(r'books', views.BookViewSet)
 
-
+#here we bind the viewset to urls 
 book_list = BookViewSet.as_view({
     'get': 'list',
     'post': 'create'
