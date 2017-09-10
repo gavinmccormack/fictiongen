@@ -16,6 +16,11 @@
         <div class="page-content" id="plaintext">
 
             <div class="setting book-tiles col-md-12">
+                <div class="book-tools">
+                    <button class="btn btn-secondary" id="books-equaliser">
+                        Equalise
+                    </button>
+                </div>
                 {% for book in books_query %}
                     <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100" data-text-words="{{ book.lines }}">
                         <span class="book-name">{{ book.name }}</span> <br />

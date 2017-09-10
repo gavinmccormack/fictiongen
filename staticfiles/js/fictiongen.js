@@ -69,6 +69,8 @@ function ui_set_even_weights() {
     ui_set_relative_weights(); // Update the visible numbers
 }
 
+
+
 // Retrieving data from page:
 function get_lines() { return $('#line-num').val()  }
 function get_statesize() { return $('#state-size').val()  }
@@ -127,6 +129,7 @@ function send_log() {
 $(document).ready(function() {
     $(".close-text").on('click', ui_deactivate_results_pane );
     $(".book-weight").on('change', ui_set_relative_weights );
+    $("#books-equaliser").on('click', ui_set_even_weights );
     $(".booktile").click(function(){
           if ($(this).attr('data-text-active')) {
             $(this).removeAttr('data-text-active'); // Toggle attribute
