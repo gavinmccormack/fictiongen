@@ -37,7 +37,7 @@ class Book(models.Model):
     fileContents = self.file.read().decode('UTF-8','ignore')
     self.lines = len(fileContents.split(' '))
     self.sentences = len(fileContents.split('.'))
-    self.model( save_book_models(self) )# would be nice to decode the books on upload so it's not a pita
+    #self.model( save_book_models(self) )# would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)
 
   def __str__(self):
