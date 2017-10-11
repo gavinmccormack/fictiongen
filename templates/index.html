@@ -7,10 +7,11 @@
 {% bootstrap_messages %}
 {% load humanize %}
 
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900,900i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<script language="JavaScript" src="/static/js/fictiongen.js"></script>
-<div id="main-container">
+
+
+{% include "introduction.html" %}
+
+<div id="main-container" style="display:none;">
     <div class="content  fill-height">
         <!-- <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."> -->
         <div class="page-content" id="plaintext">
