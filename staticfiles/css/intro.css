@@ -8,6 +8,8 @@ header {
   top:0;
   width:100%;
   z-index:50;
+  background-color: #444341;
+  border-bottom: 1px solid white;
 }
 
 
