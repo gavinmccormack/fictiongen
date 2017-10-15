@@ -416,3 +416,9 @@ textarea {padding:10px;}
   max-width:500px;
   width:100%;
 }
+
+
+.generator-page .generator-toolbar {
+	position:absolute;
+	bottom:0;
+}

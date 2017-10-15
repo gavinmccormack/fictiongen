@@ -73,6 +73,7 @@ function register_slide_left(trigger, slideFrom, slideTo) {
 
 $(window).load(function() {
   register_slide_left('.intro-button','.introduction-page','.generator-page');
+  register_slide_left('#talk-button','.generator-page','.results-page');
 });
 
 })(jQuery);
