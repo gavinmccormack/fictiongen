@@ -156,7 +156,7 @@ Slider additionals
 }
 
 .slidepage-container.inactive {
-  left:5000px;
+  left:100vw;
 }
 /*---------------------------------------------------------------------------------------------------
 SVG Icons

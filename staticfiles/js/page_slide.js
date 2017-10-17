@@ -47,7 +47,7 @@ $(window).resize(function(){
 function slide_out(selector) {
   $( selector ).animate({
     opacity: 0.25,
-    left: "-5000"
+    left: -window.innerWidth
   }, 2000, function() {
     $( selector ).addClass('inactive')
   });
@@ -74,6 +74,7 @@ function register_slide_left(trigger, slideFrom, slideTo) {
 $(window).load(function() {
   register_slide_left('.intro-button','.introduction-page','.generator-page');
   register_slide_left('#talk-button','.generator-page','.results-page');
+  register_slide_left('.close-text','.results-page','.generator-page');
 });
 
 })(jQuery);
