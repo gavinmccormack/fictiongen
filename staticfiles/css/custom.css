@@ -320,10 +320,13 @@ textarea {padding:10px;}
   min-width:40px;
   display:inline-block;
   text-align:center;
-    border: 1px solid #6d0a0a;
-    background-color: #d66767;
-    color:white;
-    padding:0.5rem 1rem;
+  background-color: #d66767;
+  color:white;
+
+  padding: 2rem;
+  -webkit-text-stroke: white;
+  border: 2px solid white;
+  margin: 5px;
 }
 
 .booktile[data-text-active] {
