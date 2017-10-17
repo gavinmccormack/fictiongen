@@ -5,6 +5,8 @@
 html body {
   color:white;
   height: 100vh;
+  width:100vw;
+  overflow-x:none;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -337,18 +339,18 @@ textarea {padding:10px;}
   font-size:1.2rem;
 }
 
-.response-field-wrap {
+.response-field{
     padding: 20px;
     text-align:center;
     margin:0 auto;
     max-width:800px;
-    position:relative;
     display:none;
     position:absolute;
     top:0;
     bottom:0;
     right:0;
     left:0;
+    z-index:400;
 }
 
 
