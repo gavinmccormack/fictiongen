@@ -22,7 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^ero/', include('erofic.urls')),
+    url(r'^', include('erofic.urls')),
     url(r'^api/', include('restmark.urls')),
     #url(r'^image/', include('image.urls')),
     url(r'^mk/', include('markov_functions.urls')),

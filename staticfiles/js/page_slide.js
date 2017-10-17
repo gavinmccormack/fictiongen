@@ -53,27 +53,35 @@ function slide_out(selector) {
   });
 }
 
-function slide_in(selector) {
+function slide_in(selector, url) {
   $( selector ).animate({
     opacity: 1,
     left: "0",
   }, 2000, function() {
   });
 
-  $( selector ).removeClass('inactive')
+  $( selector ).removeClass('inactive');
+  window.history.pushState("", "LitGen : Generator", "/generator");
 }
 
-function register_slide_left(trigger, slideFrom, slideTo) {
+function register_slide_left(trigger, slideFrom, slideTo, url) {
 // prototype
   $( trigger ).click(function() {
       slide_out(slideFrom);
-      slide_in(slideTo);
+      slide_in(slideTo, url);
   });
 }
 
 $(window).load(function() {
-  register_slide_left('.intro-button','.introduction-page','.generator-page');
-  register_slide_left('#talk-button','.generator-page','.results-page');
+  register_slide_left('.intro-button','.introduction-page','.generator-page','/generator');
+  register_slide_left('#talk-button','.generator-page','.results-page', '/generator');
+
+  // Check if this is a reload from ajax
+  url = window.location.href;
+  if ( url.match('/generator') ) {
+    $('.slidepage-container').addClass('inactive');
+    $('.generator-page').removeClass('inactive');
+  }
 });
 
 })(jQuery);
