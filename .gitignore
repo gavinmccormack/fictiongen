@@ -101,4 +101,3 @@ ENV/
 # Django custom
 local_settings.py
 dj/errors/*
-media/*
