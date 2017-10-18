@@ -20,9 +20,10 @@ def ma_process(request):
             stateSize = int( request_data['stateSize'] )
             posEnabled = ( request_data['posEnabled'] == "True" ) # A bit iffy
             lines = int(request_data['lines'])
+            paragraphs = int(request_data['paragraphs'])
             fictionObj = ma.fictionObject(books=request_data['book_ids'], stateSize=stateSize )
             print("Fiction Object Created")
-            markovedText = fictionObj.get_text( lines=lines, posEnabled=posEnabled)
+            markovedText = fictionObj.get_text( lines=lines, posEnabled=posEnabled, paragraphs=paragraphs)
             print("Text Markoved")
             return HttpResponse(json.dumps(markovedText))
         except Exception as e:

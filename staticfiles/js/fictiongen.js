@@ -33,11 +33,11 @@ function calculate_weight_ratio(total,single_book_words, book_weight) {
 function ui_activate_loading_notice() {
     $('.loading-notice').animate({ top:'100px' },'slow');
     $('.response-field-wrap').css('display','block');
-    setTimeout(ui_deactivate_loading_notice,5000);
+    // setTimeout(ui_deactivate_loading_notice,5000); // removed on ajax completion
 }
 
 function ui_deactivate_loading_notice() {
-    $('.loading-notice').animate({ top:'-600px' },'slow');
+    $('.loading-notice').animate({ top:'-600px' },200); // Quick unload
     $('.response-field-wrap').css('display','none');
 }
 
@@ -86,7 +86,7 @@ function ui_set_resizable_handles() {
         resizeWidth : true,
         resizeWidthFrom: 'right'
     }
-    $('.booktile').resizable(options);
+    //$('.booktile').resizable(options);
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -119,6 +119,7 @@ function get_book_request_json() {
         book_ids : bookIDs,
         stateSize: get_statesize() ,
         lines: get_lines(),
+        paragraphs: 10,
         posEnabled : get_grammar_kit(),
         csrfmiddlewaretoken: "{{ csrf_token }}"
     })
@@ -140,10 +141,12 @@ function send_log() {
             ui_activate_results_pane();
         },
         complete : function() {
-            ui_activate_loading_notice();
+            ui_deactivate_loading_notice();
         },
         error : function() {
             console.log("Server error");
+
+            $('.loading-notice').html("I'm sorry there was an error and the text couldn't be loaded.")
         }
     });
  }
@@ -156,11 +159,12 @@ $(document).ready(function() {
     $(".close-text").on('click', ui_deactivate_results_pane );
     $(".book-weight").on('change', ui_set_relative_weights );
     $("#books-equaliser").on('click', ui_set_even_weights );
-    $(".booktile").click(function(){
-          if ($(this).attr('data-text-active')) {
-            $(this).removeAttr('data-text-active'); // Toggle attribute
+    $(".booktile .booktile-clickable").click(function(){
+          var booktile = $(this).parent();
+          if (booktile.attr('data-text-active')) {
+            booktile.removeAttr('data-text-active'); // Toggle attribute
         } else {
-            $(this).attr('data-text-active',"on");
+            booktile.attr('data-text-active',"on");
         }
     ui_set_resizable_handles();
     ui_set_relative_weights(); // Set the relative weights of texts

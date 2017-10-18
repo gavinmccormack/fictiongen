@@ -19,23 +19,23 @@ class fictionObject(object):
     print("Init finished")
 
 
-  def get_text(self, lines=30, posEnabled=0, line_breaks=3):
+  def get_text(self, lines=30, posEnabled=0, paragraphs=3):
     """ Method needs refactored particularly in light of proper book models """
     log.g_log_exception("Beginning markovification")
     try: 
       model = load_active_books(self.books, self.stateSize, posEnabled) 
-      output = self.get_mk_sentences(model, lines ,line_breaks)
+      output = self.get_mk_sentences(model, lines ,paragraphs)
       return output
     except:
       log.g_log_exception(log.PrintException())
       return False
 
-  def get_mk_sentences(self, textModel, numberOfLines, line_breaks):
+  def get_mk_sentences(self, textModel, numberOfLines, paragraphs):
     output = ""
     for i in range(numberOfLines):
         sentence = str(textModel.make_sentence()) + " " # Spaces after full stop
         if sentence != "None ":
-          if i % line_breaks == 0:          # Add in line breaks every so often, just for a bit more of a normal appearance, add this to front end
+          if i % paragraphs == 0:          # Add in line breaks every so often, just for a bit more of a normal appearance, add this to front end
             output = output + "<br />"
           output = output + sentence 
     return output 

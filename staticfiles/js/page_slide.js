@@ -48,7 +48,7 @@ function slide_out(selector) {
   $( selector ).animate({
     opacity: 0.25,
     left: -window.innerWidth
-  }, 2000, function() {
+  }, 700, function() {
     $( selector ).addClass('inactive')
   });
 }
@@ -57,7 +57,7 @@ function slide_in(selector, url) {
   $( selector ).animate({
     opacity: 1,
     left: "0",
-  }, 2000, function() {
+  }, 700, function() {
   });
 
   $( selector ).removeClass('inactive');

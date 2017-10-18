@@ -4,21 +4,20 @@
 
     <!-- <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."> -->
     <div class="page-content" id="plaintext">
-
+        <div class="book-tools">
+            <button class="btn btn-secondary" id="books-equaliser">
+                Equalise
+            </button>
+        </div>
         <div class="setting book-tiles col-md-12">
-            <div class="book-tools">
-                <button class="btn btn-secondary" id="books-equaliser">
-                    Equalise
-                </button>
-            </div>
             {% for book in books_query %}
             <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100" data-text-words="{{ book.lines }}">
-                <div class="booktile-details">
+                <div class="booktile-details booktile-clickable">
                     <span class="book-name">{{ book.name }}</span> <br />
                     <span class="book-lines">Words: {{ book.lines | intcomma}}</span>
                     <span class="book-power"></span>
                 </div>
-                <input class="book-weight" type="range" min="0" max="100">
+                <input class="book-weight" type="range" min="0" max="100" step="0.1">
             </div>
             {% endfor %}
             

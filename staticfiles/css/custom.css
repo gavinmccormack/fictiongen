@@ -114,12 +114,11 @@ body {
 
 
 /* ----------------------------------------------------------------------------------------------------
-  Backgrounds/Page Slides
+  Page Slides
 /* ----------------------------------------------------------------------------------------------------*/
 
 
 /* General Page Settings */
-
 #slidepage-parent {
     margin: 0;
     padding: 0;
@@ -282,34 +281,43 @@ textarea {padding:10px;}
 /* ----------------------------------------------------------------------------------------------------*/
 
 .book-tiles {
-  margin-top:1rem;
+  margin-top:3rem;
 }
 
 .booktile {
   min-height:40px;
   min-width:40px;
+  position:relative;
   display:inline-block;
   text-align:center;
-  background-color: #ff8d2a;
   color:white;
   border-radius:50%;
   padding: 2rem;
   -webkit-text-stroke: white;
-  border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.7);
   margin: 5px;
-  background-color: #ff8d2a;
+  background-color: #374252;
 }
 
 .booktile[data-text-active] {
-  background:green;
+  background:rgba(255,255,255,0.4);
 }
 
 
+.book-tools {
+  margin:1rem;
+}
 
 /* ----------------------------------------------------------------------------------------------------
   Sliders
 /* ----------------------------------------------------------------------------------------------------*/
 
+
+.book-weight {
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+}
 .booktile[data-text-active] input[type="range"] {
   display:block; /* only display if active */
 }
@@ -321,6 +329,12 @@ textarea {padding:10px;}
   height: 10px;
   border-radius:4px;
   margin-top:10px;
+  border: 1px solid #ffffff;
+  background-image: -webkit-gradient(
+    linear, left center, right center,
+    color-stop(0%, #555), color-stop(50%, #ccc),
+    color-stop(51%, #ddd),
+    color-stop(100%, #fff));
 }
 
 input[type="checkbox"] {
@@ -345,7 +359,7 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   border-radius: 40px;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #690707), color-stop(50%, #690707), color-stop(51%, #690707), color-stop(100%, #690707));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddd), color-stop(50%, #fff), color-stop(51%, #eee), color-stop(100%, #ddd));
 }
 
 input[type="range"]:hover ~ #rangevalue,
@@ -401,6 +415,7 @@ input[type="range"]:active ~ #rangevalue {
   max-width:500px;
   text-align:center;
   margin:0 auto;
+  height: auto;
 }
 
 .close-text {
