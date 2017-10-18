@@ -491,3 +491,14 @@ Time: 2017-10-18 06:58:46.746170  Beginning markovification
 Time: 2017-10-18 06:58:46.750685  Type: Simple
 Time: 2017-10-18 06:58:46.757709  Type: Simple
 Time: 2017-10-18 06:58:46.854539  Type: Simple
+Time: 2017-10-18 17:19:09.914071  Beginning markovification
+Time: 2017-10-18 17:19:09.918080  Type: Simple
+Time: 2017-10-18 17:19:09.931109  Type: Simple
+Time: 2017-10-18 17:19:10.045907  Type: Simple
+Time: 2017-10-18 17:22:12.311529  Beginning markovification
+Time: 2017-10-18 17:22:12.315537  Type: Simple
+Time: 2017-10-18 17:22:12.338588  Type: Simple
+Time: 2017-10-18 17:22:14.800547  Type: Simple
+Time: 2017-10-18 17:22:15.230585  Type: Simple
+Time: 2017-10-18 17:22:15.989436  Type: Simple
+Time: 2017-10-18 17:22:16.445209  Type: Simple

@@ -31,14 +31,23 @@
             <span class="icon icon-center icon-gears">
         </button>
         <div class="col-xs-12 generator-toolbar">
-            <div class="setting col-xs-4">
-                <label>Number of Lines</label> <input class="form-control" id="line-num" type="number" value="30"><br>
+            <div class="setting col-xs-3">
+                <div class="icon small icon-center icon-lines" title="Number of Lines"> </div>
+                <input class="form-control small-int-input" id="line-num" type="number" value="30"><br>
             </div>
-            <div class="setting col-xs-4">
-                <label>State Size</label> <input class="form-control" id="state-size" type="number" value="2"><br>
+            <div class="setting col-xs-3">
+                <div class="icon small icon-center icon-size" title="State Size"> </div>
+                <input class="form-control small-int-input" id="state-size" type="number" value="2"><br>
             </div>
-            <div class="setting col-md-4">
-                <label>Enable the grammar checking</label> <input class="checkbox" id="grammar-entry" type="checkbox"><br>
+            <div class="setting col-xs-3">
+                <div class="icon small icon-center icon-spellcheck" title="Grammar Correction"> </div>
+                <input class="checkbox" id="grammar-entry" type="checkbox"><br>
+            </div>
+
+            <div class="setting col-xs-3">
+                <button class="btn btn-secondary" id="tutorial-activate">
+                 Tutorial Test
+                </button>
             </div>
         </div>
     </div>
