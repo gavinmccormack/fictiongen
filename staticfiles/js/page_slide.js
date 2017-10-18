@@ -73,13 +73,9 @@ function register_slide_left(trigger, slideFrom, slideTo, url) {
 }
 
 $(window).load(function() {
-<<<<<<< HEAD
   register_slide_left('.intro-button','.introduction-page','.generator-page');
   register_slide_left('#talk-button','.generator-page','.results-page');
   register_slide_left('.close-text','.results-page','.generator-page');
-=======
-  register_slide_left('.intro-button','.introduction-page','.generator-page','/generator');
-  register_slide_left('#talk-button','.generator-page','.results-page', '/generator');
 
   // Check if this is a reload from ajax
   url = window.location.href;
@@ -87,7 +83,6 @@ $(window).load(function() {
     $('.slidepage-container').addClass('inactive');
     $('.generator-page').removeClass('inactive');
   }
->>>>>>> refs/remotes/origin/master
 });
 
 })(jQuery);

@@ -19,7 +19,7 @@ def get_book_directory_path(instance, filename):
   return 'user/{0}/{1}'.format(instance.user.id, filename)
 
 class Book(models.Model):
-  name = models.CharField(max_length=30,blank=True)
+  name = models.CharField(max_length=40,blank=True)
   file = models.FileField(upload_to=get_book_directory_path,blank=True)
   model = models.FileField(upload_to=get_book_directory_path,blank=True)
   user = models.ForeignKey(User, unique=False,blank=True)

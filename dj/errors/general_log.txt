@@ -355,3 +355,21 @@ Time: 2017-10-17 20:09:51.389512  Type: Simple
 Time: 2017-10-17 20:10:35.719025  Type: Simple
 Time: 2017-10-17 20:10:40.383703  Type: Simple
 >>>>>>> refs/remotes/origin/master
+Time: 2017-10-18 04:16:15.489042  Beginning markovification
+Time: 2017-10-18 04:16:15.494561  Type: Simple
+Time: 2017-10-18 04:16:15.584869  Type: Simple
+Time: 2017-10-18 04:16:42.344572  Type: Simple
+Time: 2017-10-18 04:16:45.349314  Type: Simple
+Time: 2017-10-18 04:16:47.964225  Type: Simple
+Time: 2017-10-18 04:16:55.081988  Beginning markovification
+Time: 2017-10-18 04:16:55.087005  Type: Simple
+Time: 2017-10-18 04:16:55.172295  Type: Simple
+Time: 2017-10-18 04:17:58.567863  Beginning markovification
+Time: 2017-10-18 04:17:58.572379  Type: Simple
+Time: 2017-10-18 04:17:58.578901  Type: Simple
+Time: 2017-10-18 04:21:36.807195  Beginning markovification
+Time: 2017-10-18 04:21:36.811711  Type: Simple
+Time: 2017-10-18 04:21:36.817731  Type: Simple
+Time: 2017-10-18 04:21:45.135079  Beginning markovification
+Time: 2017-10-18 04:21:45.140095  Type: Simple
+Time: 2017-10-18 04:21:45.146116  Type: Simple
