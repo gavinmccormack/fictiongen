@@ -37,7 +37,7 @@ body {
 /* ----------------------------------------------------------------------------------------------------*/
 
 h1,h2,h3,h4,h5,h6 {
-    font-family:'Lobster Two' !important;
+    font-family:'Lobster Two';
 }
 
 label {
@@ -70,17 +70,36 @@ body > div {
 
 
 
+/* Help dialogues */
+
+.popup h2 {
+  font-family: 'Roboto';
+  margin-top:0;
+  font-size:1.5rem;
+}
+
+.popup .content {
+  font-family: 'Roboto';
+  font-size:1rem;
+}
+
+#generate-button {
+  font-family: 'Roboto';
+  font-size:30px;
+}
+
 /* ----------------------------------------------------------------------------------------------------
   Buttons
 /* ----------------------------------------------------------------------------------------------------*/
 
-#talk-button {
+#generate-button {
   position:absolute;
   top:10px;
   right:10px;
   min-width:200px;
   max-width:500px;
   width:100%;
+  max-width:200px;
 }
 
 
@@ -89,6 +108,16 @@ body > div {
   bottom:0;
 }
 
+
+#books-equaliser {
+  background:none;
+  border: 1px solid #ffffff;
+}
+
+#books-equaliser:hover {
+  color:#eee;
+  background:rgba(255,255,255,0.2);
+}
 /*---------------------------------------------------------------------------------------------------
  Site Header
 -----------------------------------------------------------------------------------------------------*/
@@ -293,10 +322,16 @@ textarea {padding:10px;}
   color:white;
   border-radius:50%;
   padding: 2rem;
-  -webkit-text-stroke: white;
-  border: 2px solid rgba(255, 255, 255, 0.7);
   margin: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
   background-color: #374252;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+.booktile:hover {
+
+  background:rgba(255,255,255,0.2);
 }
 
 .booktile[data-text-active] {
@@ -450,4 +485,37 @@ input[type="range"]:active ~ #rangevalue {
   }
 }
 
+
+/* ----------------------------------------------------------------------------------------------------
+  Help Popups
+/* ----------------------------------------------------------------------------------------------------*/
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:9999;
+  color:#333;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 90%;
+  max-width:500px;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
 

@@ -74,7 +74,7 @@ function register_slide_left(trigger, slideFrom, slideTo, url) {
 
 $(window).load(function() {
   register_slide_left('.intro-button','.introduction-page','.generator-page');
-  register_slide_left('#talk-button','.generator-page','.results-page');
+  register_slide_left('#generate-button','.generator-page','.results-page');
   register_slide_left('.close-text','.results-page','.generator-page');
 
   // Check if this is a reload from ajax
