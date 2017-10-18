@@ -165,7 +165,7 @@ SVG Icons
 body {
     background-image:url("/static/images/background.png");
     background-repeat:no-repeat;
-background-position: right 1vh; 
+background-position: right 0; 
     background-size: cover;
     }
 

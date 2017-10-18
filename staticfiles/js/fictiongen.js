@@ -1,4 +1,6 @@
-
+/*------------------------------------------------------------------------------------------*/
+// Calculations
+/*------------------------------------------------------------------------------------------*/
 
 /* Total words of all active books */
 function get_total_words() {
@@ -20,7 +22,10 @@ function calculate_weight_ratio(total,single_book_words, book_weight) {
     return ui_power;
 }
 
-// UI functions
+
+/*------------------------------------------------------------------------------------------*/
+// UI Functions
+/*------------------------------------------------------------------------------------------*/
 // ADD: I'd like to move these to a separate file, and perhaps handle them as an object.
 // These are very much template functions just to get basic functionality running
 
@@ -70,8 +75,24 @@ function ui_set_even_weights() {
 }
 
 
+/*------------------------------------------------------------------------------------------*/
+// UI Functions; Jquery Resizable
+/*------------------------------------------------------------------------------------------*/
 
-// Retrieving data from page:
+function ui_set_resizable_handles() {
+    console.log("Resizable Handles Started");
+    var options = {
+        handleSelector: null,
+        resizeWidth : true,
+        resizeWidthFrom: 'right'
+    }
+    $('.booktile').resizable(options);
+}
+
+/*------------------------------------------------------------------------------------------*/
+// Getting data from the page/user
+/*------------------------------------------------------------------------------------------*/
+
 function get_lines() { return $('#line-num').val()  }
 function get_statesize() { return $('#state-size').val()  }
 function get_url() { return $('#url-entry').val()  }
@@ -104,6 +125,9 @@ function get_book_request_json() {
     return data;
 }
 
+/*------------------------------------------------------------------------------------------*/
+// Ajax Requests
+/*------------------------------------------------------------------------------------------*/
 function send_log() {
     ui_activate_loading_notice();
     $.ajax({
@@ -125,7 +149,9 @@ function send_log() {
  }
 
 
+/*------------------------------------------------------------------------------------------*/
 // Events
+/*------------------------------------------------------------------------------------------*/
 $(document).ready(function() {
     $(".close-text").on('click', ui_deactivate_results_pane );
     $(".book-weight").on('change', ui_set_relative_weights );
@@ -136,7 +162,10 @@ $(document).ready(function() {
         } else {
             $(this).attr('data-text-active',"on");
         }
+    ui_set_resizable_handles();
     ui_set_relative_weights(); // Set the relative weights of texts
+    
+    console.log("Page Events Successfully Registered");
     });
 });
 

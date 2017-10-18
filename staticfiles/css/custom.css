@@ -4,6 +4,9 @@
 
 html body {
   color:white;
+  height: 100vh;
+  width:100vw;
+  overflow-x:none;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -319,10 +322,13 @@ textarea {padding:10px;}
   min-width:40px;
   display:inline-block;
   text-align:center;
-    border: 1px solid #6d0a0a;
-    background-color: #d66767;
-    color:white;
-    padding:0.5rem 1rem;
+  background-color: #d66767;
+  color:white;
+
+  padding: 2rem;
+  -webkit-text-stroke: white;
+  border: 2px solid white;
+  margin: 5px;
 }
 
 .booktile[data-text-active] {
@@ -333,18 +339,18 @@ textarea {padding:10px;}
   font-size:1.2rem;
 }
 
-.response-field-wrap {
+.response-field{
     padding: 20px;
     text-align:center;
     margin:0 auto;
     max-width:800px;
-    position:relative;
     display:none;
     position:absolute;
     top:0;
     bottom:0;
     right:0;
     left:0;
+    z-index:400;
 }
 
 

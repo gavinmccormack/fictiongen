@@ -205,6 +205,7 @@ Time: 2017-10-14 14:17:51.088066  Type: Simple
 Time: 2017-10-14 14:17:51.125089  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\users\\grim\\desktop\\markovery\\media\\user\\3\\bible.txt'
 Time: 2017-10-14 14:17:51.142603  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
 Time: 2017-10-14 14:17:51.156612  EXCEPTION IN (C:\users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+<<<<<<< HEAD
 Time: 2017-10-15 02:34:19.281363  Beginning markovification
 Time: 2017-10-15 02:34:19.285364  Type: Simple
 Time: 2017-10-15 02:35:22.849926  Beginning markovification
@@ -275,3 +276,82 @@ Time: 2017-10-15 02:46:14.605082  Type: Simple
 Time: 2017-10-15 02:47:28.166647  Beginning markovification
 Time: 2017-10-15 02:47:28.171658  Type: Simple
 Time: 2017-10-15 02:47:28.179675  Type: Simple
+=======
+Time: 2017-10-17 01:00:20.758871  Beginning markovification
+Time: 2017-10-17 01:00:20.781881  Type: Simple
+Time: 2017-10-17 01:00:20.830970  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\grim\\desktop\\markovery\\media\\user\\1\\sample1.txt'
+Time: 2017-10-17 01:00:20.842961  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 01:00:20.857972  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 01:01:31.497623  Beginning markovification
+Time: 2017-10-17 01:01:31.519641  Type: Simple
+Time: 2017-10-17 01:01:31.536668  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\grim\\desktop\\markovery\\media\\user\\1\\sample3.txt'
+Time: 2017-10-17 01:01:31.549658  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 01:01:31.557664  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 01:02:23.543193  Beginning markovification
+Time: 2017-10-17 01:02:23.567211  Type: Simple
+Time: 2017-10-17 01:02:23.584221  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\grim\\desktop\\markovery\\media\\user\\3\\bible.txt'
+Time: 2017-10-17 01:02:23.595248  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 01:02:23.606257  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 01:07:11.808390  Beginning markovification
+Time: 2017-10-17 01:07:11.818398  Type: Simple
+Time: 2017-10-17 01:07:11.831423  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\grim\\desktop\\markovery\\media\\user\\3\\bible.txt'
+Time: 2017-10-17 01:07:11.841416  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 01:07:11.849420  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 01:07:22.828752  Beginning markovification
+Time: 2017-10-17 01:07:22.835772  Type: Simple
+Time: 2017-10-17 01:07:22.844794  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\grim\\desktop\\markovery\\media\\user\\3\\bible.txt'
+Time: 2017-10-17 01:07:22.854786  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 01:07:22.862791  EXCEPTION IN (C:\Users\grim\desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 19:15:10.346867  Beginning markovification
+Time: 2017-10-17 19:15:10.366887  Type: Simple
+Time: 2017-10-17 19:15:10.419832  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\Grim\\Desktop\\markovery\\media\\user\\1\\sample1.txt'
+Time: 2017-10-17 19:15:10.442851  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 19:15:10.465863  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 19:27:40.843713  Beginning markovification
+Time: 2017-10-17 19:27:40.864726  Type: Simple
+Time: 2017-10-17 19:27:40.896748  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\Grim\\Desktop\\markovery\\media\\user\\1\\marko_edmcehi.txt'
+Time: 2017-10-17 19:27:40.918764  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 19:27:40.939313  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 19:33:06.743192  Beginning markovification
+Time: 2017-10-17 19:33:06.752197  Type: Simple
+Time: 2017-10-17 19:33:06.931702  Type: Simple
+Time: 2017-10-17 19:33:56.569695  Type: Simple
+Time: 2017-10-17 19:36:10.339675  Beginning markovification
+Time: 2017-10-17 19:36:10.345841  Type: Simple
+Time: 2017-10-17 19:36:26.588572  Beginning markovification
+Time: 2017-10-17 19:36:26.596091  Type: Simple
+Time: 2017-10-17 19:36:26.608620  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): [Errno 2] No such file or directory: 'C:\\Users\\Grim\\Desktop\\markovery\\media\\user\\3\\bible.txt'
+Time: 2017-10-17 19:36:26.622041  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 19:36:26.639053  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 19:37:43.180583  Beginning markovification
+Time: 2017-10-17 19:37:43.187589  Type: Simple
+Time: 2017-10-17 19:37:43.202600  Type: Simple
+Time: 2017-10-17 19:37:47.351701  Type: Simple
+Time: 2017-10-17 19:38:03.031113  Beginning markovification
+Time: 2017-10-17 19:38:03.053703  Type: Simple
+Time: 2017-10-17 19:38:03.093136  Type: Simple
+Time: 2017-10-17 19:39:51.806401  Beginning markovification
+Time: 2017-10-17 19:39:51.813406  Type: Simple
+Time: 2017-10-17 19:39:51.833420  Type: Simple
+Time: 2017-10-17 19:39:56.182282  Type: Simple
+Time: 2017-10-17 19:42:02.389795  Beginning markovification
+Time: 2017-10-17 19:42:02.399804  Type: Simple
+Time: 2017-10-17 19:42:02.417335  Type: Simple
+Time: 2017-10-17 19:42:07.240784  Type: Simple
+Time: 2017-10-17 19:43:50.074884  Beginning markovification
+Time: 2017-10-17 19:43:50.092922  Type: Simple
+Time: 2017-10-17 19:43:50.133929  Type: Simple
+Time: 2017-10-17 19:43:54.887635  Type: Simple
+Time: 2017-10-17 20:09:39.794030  Beginning markovification
+Time: 2017-10-17 20:09:39.833052  Type: Simple
+Time: 2017-10-17 20:09:40.047281  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 33 "contents = book.file.read().decode('utf-8','ignore')"): 
+Time: 2017-10-17 20:09:40.103357  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2017-10-17 20:09:40.212469  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 20:09:44.900438  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\books.py, LINE 49 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): 
+Time: 2017-10-17 20:09:46.268394  EXCEPTION IN (C:\Users\Grim\Desktop\markovery\markov_functions\mk_functions.py, LINE 27 "output = self.get_mk_sentences(model, lines ,line_breaks)"): 'str' object has no attribute 'make_sentence'
+Time: 2017-10-17 20:09:51.256119  Beginning markovification
+Time: 2017-10-17 20:09:51.264110  Type: Simple
+Time: 2017-10-17 20:09:51.389512  Type: Simple
+Time: 2017-10-17 20:10:35.719025  Type: Simple
+Time: 2017-10-17 20:10:40.383703  Type: Simple
+>>>>>>> refs/remotes/origin/master

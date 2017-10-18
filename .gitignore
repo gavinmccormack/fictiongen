@@ -101,4 +101,4 @@ ENV/
 # Django custom
 local_settings.py
 dj/errors/*
-media/*
+dj/errors/general_log.txt
