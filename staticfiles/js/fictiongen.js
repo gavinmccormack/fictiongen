@@ -119,7 +119,7 @@ function get_book_request_json() {
         book_ids : bookIDs,
         stateSize: get_statesize() ,
         lines: get_lines(),
-        paragraphs: 10,
+        paragraphs: 1,
         posEnabled : get_grammar_kit(),
         csrfmiddlewaretoken: "{{ csrf_token }}"
     })

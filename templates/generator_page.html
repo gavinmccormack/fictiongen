@@ -1,8 +1,5 @@
 
 {% load humanize %}
-{% include "help_popups.html" %}
-
-    <!-- <img class="logo" src="/static/images/sexy-logo.png" title="Ooh. Hot."> -->
     <div class="page-content" id="plaintext">
         <div class="book-tools">
             <button class="btn btn-secondary" id="books-equaliser">
@@ -27,13 +24,14 @@
 
         </div>
         
-        <button class="btn btn-primary" id="generate-button" onclick="send_log()" title="Give me text!">Generate
+        <button class="btn btn-primary" id="generate-button" onclick="send_log()" title="Give me text!">
+        Create
             <span class="icon icon-center icon-gears">
         </button>
         <div class="col-xs-12 generator-toolbar">
             <div class="setting col-xs-3">
                 <div class="icon small icon-center icon-lines" title="Number of Lines"> </div>
-                <input class="form-control small-int-input" id="line-num" type="number" value="30"><br>
+                <input class="form-control small-int-input" id="line-num" type="number" value="10"><br>
             </div>
             <div class="setting col-xs-3">
                 <div class="icon small icon-center icon-size" title="State Size"> </div>
@@ -51,4 +49,3 @@
             </div>
         </div>
     </div>
-</div>

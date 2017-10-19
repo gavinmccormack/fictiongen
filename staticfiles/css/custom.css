@@ -88,6 +88,24 @@ body > div {
   font-size:30px;
 }
 
+
+/* intro */
+.heading-large{
+    font-size:4.5rem;
+   font-family: 'Julius Sans One', sans-serif;
+}
+
+.description-large {
+    font-size:2.2rem;
+    font-weight:bold;
+    font-family: 'Zilla Slab Highlight', display;
+}
+
+li {
+    font-family: 'Pridi', serif;
+    font-size:2rem;
+    list-style:none;
+}
 /* ----------------------------------------------------------------------------------------------------
   Buttons
 /* ----------------------------------------------------------------------------------------------------*/
@@ -197,27 +215,14 @@ Intro
 #section-intro {
     padding: 5rem;
 }
-.heading-large{
-    font-size:5rem;
-   font-family: 'Julius Sans One', sans-serif;
-}
 
-.description-large {
-    font-size:3rem;
-    font-weight:bold;
-    font-family: 'Zilla Slab Highlight', display;
-}
 
 .instructions {
     margin-top:-20px;
     margin-bottom:20px;
 }
 
-li {
-    font-family: 'Pridi', serif;
-    font-size:2.8rem;
-    list-style:none;
-}
+
 
 .intro-button-wrap {
     display:inline-block;
@@ -311,7 +316,7 @@ textarea {padding:10px;}
 /* ----------------------------------------------------------------------------------------------------*/
 
 .book-tiles {
-  margin-top:3rem;
+  margin-top:5rem;
 }
 
 .booktile {
