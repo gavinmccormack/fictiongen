@@ -106,6 +106,15 @@ li {
     font-size:2rem;
     list-style:none;
 }
+
+
+/* Results */
+
+.response-text p {
+  color: #4c3a3a;
+  font-size:1.1rem;
+  text-align:left;
+}
 /* ----------------------------------------------------------------------------------------------------
   Buttons
 /* ----------------------------------------------------------------------------------------------------*/
@@ -203,10 +212,6 @@ body {
     min-height:100vh;
     padding-top:450px;
 }
-
-/* Background */
-
-
 
 
 /*---------------------------------------------------------------------------------------------------
@@ -324,6 +329,10 @@ textarea {padding:10px;}
   min-width:40px;
   position:relative;
   display:inline-block;
+}
+
+.booktile-clickable {
+
   text-align:center;
   color:white;
   border-radius:50%;
@@ -335,12 +344,12 @@ textarea {padding:10px;}
   transition:all 0.3s ease;
 }
 
-.booktile:hover {
+.booktile-clickable:hover {
 
   background:rgba(255,255,255,0.2);
 }
 
-.booktile[data-text-active] {
+.booktile[data-text-active] .booktile-clickable{
   background:rgba(255,255,255,0.4);
 }
 
@@ -451,7 +460,7 @@ input.checkbox {
     max-width:700px;
     letter-spacing: 1px;
     display:none;
-    background: rgba(0,0,0,0.7);
+    background: rgba(230, 230, 225, 0.7);
     padding-top:50px;
     z-index: 5;
     height: 100vh;
@@ -492,19 +501,7 @@ input.checkbox {
   animation:hoverpulse 2s infinite;
 }
 
-@keyframes hoverpulse {
-  0% {
-    background-color:white;
-  }
 
-  100% {
-    background-color:#222;
-  }
-
-  0% {
-    background-color:white;
-  }
-}
 
 
 /* ----------------------------------------------------------------------------------------------------
@@ -567,4 +564,74 @@ input.checkbox {
 
 .tutorial-show {
   display:block !important;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------
+  UI responsive effect features
+/* ----------------------------------------------------------------------------------------------------*/
+@-webkit-keyframes click-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes click-pop {
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.clk-out {
+  display: inline-block;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-animation-name: click-pop;
+  animation-name: click-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+
+/* BG */
+
+@keyframes hoverpulse {
+  0% {
+    background-color:white;
+  }
+
+  100% {
+    background-color:#222;
+  }
+
+  0% {
+    background-color:white;
+  }
+}
+
+
+/* Pulse on click actions. attempting to add a tactile feel. */
+body.tactile-click:before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  -webkit-animation: pulse 0.1s ease-in-out 1 alternate;
+  animation: pulse 0.1s ease-in-out 1 alternate;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(50,50,50,0.07);
+  }
+  100% {
+    background: transparent;
+  }
 }

@@ -29,6 +29,23 @@ function calculate_weight_ratio(total,single_book_words, book_weight) {
 // ADD: I'd like to move these to a separate file, and perhaps handle them as an object.
 // These are very much template functions just to get basic functionality running
 
+
+function ui_pulse(clickedItem) {
+    // Pulse slightly combined with other actions
+
+    /* 
+        Note: incase I forget what I was thinking here. Some kind of general responsiveness in the interface 
+        for clicks would be good.
+
+    */
+    $('body').addClass('tactile-click');
+    $(clickedItem).addClass('clk-out');
+    setTimeout(function() { 
+        $('body').removeClass('tactile-click');
+        $(clickedItem).removeClass('clk-out');
+    },600);
+}
+
 /* Activate the "Results will appear shortly" notice */
 function ui_activate_loading_notice() {
     $('.loading-notice').animate({ top:'100px' },'slow');
@@ -75,25 +92,14 @@ function ui_set_even_weights() {
 }
 
 
-/*------------------------------------------------------------------------------------------*/
-// UI Functions; Jquery Resizable
-/*------------------------------------------------------------------------------------------*/
 
-function ui_set_resizable_handles() {
-    console.log("Resizable Handles Started");
-    var options = {
-        handleSelector: null,
-        resizeWidth : true,
-        resizeWidthFrom: 'right'
-    }
-    //$('.booktile').resizable(options);
-}
 
 /*------------------------------------------------------------------------------------------*/
 // Getting data from the page/user
 /*------------------------------------------------------------------------------------------*/
 
 function get_lines() { return $('#line-num').val()  }
+function get_paragraph_size() { return $('#paragraph-size').val()  }
 function get_statesize() { return $('#state-size').val()  }
 function get_url() { return $('#url-entry').val()  }
 function get_grammar_kit() {
@@ -119,7 +125,7 @@ function get_book_request_json() {
         book_ids : bookIDs,
         stateSize: get_statesize() ,
         lines: get_lines(),
-        paragraphs: 1,
+        paragraphs: get_paragraph_size(),
         posEnabled : get_grammar_kit(),
         csrfmiddlewaretoken: "{{ csrf_token }}"
     })
@@ -160,16 +166,44 @@ $(document).ready(function() {
     $(".book-weight").on('change', ui_set_relative_weights );
     $("#books-equaliser").on('click', ui_set_even_weights );
     $(".booktile .booktile-clickable").click(function(){
+        ui_pulse(this);
           var booktile = $(this).parent();
           if (booktile.attr('data-text-active')) {
             booktile.removeAttr('data-text-active'); // Toggle attribute
         } else {
             booktile.attr('data-text-active',"on");
         }
-    ui_set_resizable_handles();
-    ui_set_relative_weights(); // Set the relative weights of texts
     
     console.log("Page Events Successfully Registered");
     });
 });
 
+
+
+/*------------------------------------------------------------------------------------------*/
+// Copy to clipboard
+/*------------------------------------------------------------------------------------------*/
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+
+/* 
+Placeholder: This is for closing modal boxes when a user clicks outside of them.
+
+$(document).mouseup(function (e)
+{
+    var container = $("YOUR CONTAINER SELECTOR");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container.hide();
+    }
+});
+
+*/
