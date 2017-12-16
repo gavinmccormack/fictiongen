@@ -4,7 +4,12 @@
 </div>
 
 <div class="response-field response-text container">
-  <button class="button copy-text" id="copy-text" onclick="copyToClipboard('#copy-text-target')">Copy</button>
-	<div class="close-text"></div>
+  <div id="results-tools">
+    <a class="copy-text" id="copy-text" onclick="copyToClipboard('#copy-text-target')"><icon class="icon small icon-copy"></icon></a>
+    <a class="copy-text" id="refresh" onclick="send_log()"><icon class="icon small icon-refresh"></icon></a>
+	</div>
+
+  <div class="close-text"></div>
+
 	<p id="copy-text-target"></p>
 </div>
