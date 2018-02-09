@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from . import views
-from restmark.views import BookViewSet
+from .views import BookViewSet
 from django.contrib.auth.models import User
 from rest_framework.routers import DefaultRouter
 from rest_framework import serializers, viewsets

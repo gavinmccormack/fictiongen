@@ -1,5 +1,5 @@
 # Book related functions
-from dj import development_tools  as log
+from core import development_tools  as log
 import os
 import codecs 
 import markovify

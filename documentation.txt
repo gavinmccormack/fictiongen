@@ -21,11 +21,13 @@ Further responsibilities for the markov_functions app are:
 * simple URL processing paths for sending a post request to retrieve the data. Ideally this would be in the form of a restful API that can be accessed from other platforms.
 
 
-### Restmark
+### Rest_api
 
 Restful API for navigating the contents of the websites; primarily to view, add, and return books.
 
-### Erofic
+Currently not used as non-essential for website based view
+
+### Front end
 
 Current front end and link to the markov functionality. This could do with some decoupling in order to distance this front end from the functionality, and will be substituted with an incremental rewrite to provide a broader front end that 1. can be viewed inside of a work place, or is suitable to show your mother, 2. provides additional functionality as a writer's inspirational tool  ( i.e http://planetsark.com/buy-stuff/writers-card-deck/ ), 3. provides functionality for more books
 

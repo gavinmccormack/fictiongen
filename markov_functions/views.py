@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from django.views.decorators.csrf import csrf_exempt ## Temporary
-#from web_functions import steal_from_url
+from django.views.decorators.csrf import csrf_exempt 
 from django.template import RequestContext
 import markov_functions.mk_functions as ma
-from dj import development_tools  as log
+from core import development_tools  as log
 from markov_functions.models import Book
 import json
 

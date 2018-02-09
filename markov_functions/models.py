@@ -5,7 +5,7 @@ from django.utils import timezone
 from markov_functions.books import save_book_models
 from django.core.files import File
 from django.core.files.base import ContentFile
-from dj.settings import MEDIA_ROOT
+from core.settings import MEDIA_ROOT
 
 # from djutils.decorators import async     # Python 3 errors. Find alternative or fix lib
 

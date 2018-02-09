@@ -2,7 +2,7 @@
 import markovify
 import sys
 import os
-from dj import development_tools  as log
+from core import development_tools  as log
 from markov_functions.text_processors import mk_nltk #, mk_textacy
 from .books import load_active_books
 
@@ -27,7 +27,7 @@ class fictionObject(object):
       output = self.get_mk_sentences(model, lines ,paragraphs)
       return output
     except:
-      log.g_log_exception(log.PrintException())
+      log.exception()
       return False
 
   def get_mk_sentences(self, textModel, numberOfLines, paragraphs):

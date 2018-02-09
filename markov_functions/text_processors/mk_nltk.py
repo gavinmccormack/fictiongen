@@ -1,5 +1,5 @@
 
-from dj import development_tools  as log
+from core import development_tools  as log
 import random
 import nltk
 import importlib

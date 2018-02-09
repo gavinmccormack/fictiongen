@@ -15,16 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-import erofic.urls
-import restmark.urls
+import front_end.urls
+import rest_api.urls
 from django.conf.urls.static import static
 from django.conf import settings
 
+
+print(settings.STATIC_ROOT)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('erofic.urls')),
-    url(r'^api/', include('restmark.urls')),
-    #url(r'^image/', include('image.urls')),
+    url(r'^', include('front_end.urls')),
+    url(r'^api/', include('rest_api.urls')),
     url(r'^mk/', include('markov_functions.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
