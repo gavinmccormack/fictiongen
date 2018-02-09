@@ -34,10 +34,11 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    fileContents = self.file.read().decode('UTF-8','ignore')
+    print(self.file)
+    print(type(self.file.read()))
+    fileContents = self.file.read()#.decode('UTF-8','ignore') # Test case failing
     self.lines = len(fileContents.split(' '))
     self.sentences = len(fileContents.split('.'))
-    #self.model( save_book_models(self) )# would be nice to decode the books on upload so it's not a pita
     return super(Book, self).save(*args, **kwargs)
 
   def __str__(self):

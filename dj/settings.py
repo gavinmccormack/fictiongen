@@ -136,9 +136,5 @@ INTERNAL_IPS = [u'147.147.122.121',u'127.0.0.1']
 
 current_host = os.environ.get('HOSTNAME')
 
-if current_host == "mk.jamdigital.tech":
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-else:
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 

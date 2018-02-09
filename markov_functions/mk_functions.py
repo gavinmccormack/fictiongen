@@ -7,7 +7,7 @@ from markov_functions.text_processors import mk_nltk #, mk_textacy
 from .books import load_active_books
 
 ##############################################################################
-###### Markov FUnctions
+###### Markov Functions
 
 
 class fictionObject(object):

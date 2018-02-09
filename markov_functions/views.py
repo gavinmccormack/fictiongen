@@ -10,22 +10,24 @@ from markov_functions.models import Book
 import json
 
 
-@csrf_exempt
+@csrf_exempt # Not particularly concerned about illegitimate requests yet.
 def ma_process(request):
     """ Send text to algorithm and return response """
     context_instance=RequestContext(request)
     if request.method == 'POST':
         try:
+            # Populate variables
             request_data = json.loads(request.body)
             stateSize = int( request_data['stateSize'] )
             posEnabled = ( request_data['posEnabled'] == "True" ) # A bit iffy
             lines = int(request_data['lines'])
             paragraphs = int(request_data['paragraphs'])
+
+            #Create instance and text 
             fictionObj = ma.fictionObject(books=request_data['book_ids'], stateSize=stateSize )
-            print("Fiction Object Created")
             markovedText = fictionObj.get_text( lines=lines, posEnabled=posEnabled, paragraphs=paragraphs)
-            print("Text Markoved")
+
             return HttpResponse(json.dumps(markovedText))
         except Exception as e:
-            return HttpResponse(log.PrintException())
+            return HttpResponse(log.logException())
     return HttpResponse("Request was not sent as POST request.")

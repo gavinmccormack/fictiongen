@@ -12,13 +12,13 @@ from markov_functions.text_processors import mk_nltk
 def build_model(text, conf_state_size, posEnabled=False):
     try:
       if posEnabled:
-        log.g_log_exception("Type: NLTK")
+        log.log_exception("Type: NLTK")
         return (nltk.POSifiedText(text, state_size=conf_state_size))
       else:
-        log.g_log_exception("Type: Simple")
+        log.log_exception("Type: Simple")
         return (markovify.Text(text, state_size=conf_state_size))
     except:
-      log.g_log_exception(log.PrintException())
+      log.log_exception(log.get_exception())
       return "Failed"
 
 def get_book_model(bookID, stateSize, posEnabled):
@@ -34,7 +34,7 @@ def get_book_model(bookID, stateSize, posEnabled):
       model = build_model(contents, int(stateSize), posEnabled=posEnabled)
     return model
   except:
-    log.g_log_exception(log.PrintException())
+    log.log_exception(log.get_exception())
     return "Failed"
 
 def load_active_books(active_books, stateSize, posEnabled):
@@ -49,7 +49,7 @@ def load_active_books(active_books, stateSize, posEnabled):
       combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight.
     return combined_models
   except:
-    log.g_log_exception(log.PrintException())
+    log.log_exception(log.get_exception())
     return "Failed"
 
 
