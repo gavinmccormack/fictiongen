@@ -145,9 +145,11 @@ function send_log() {
         success : function(data) {
             $( ".response-field p" ).html(data);
             ui_activate_results_pane();
+            console.log(data)
         },
         complete : function() {
             ui_deactivate_loading_notice();
+            console.log("Complete")
         },
         error : function() {
             console.log("Server error");

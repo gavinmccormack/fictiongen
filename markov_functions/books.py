@@ -12,13 +12,11 @@ from markov_functions.text_processors import mk_nltk
 def build_model(text, conf_state_size, posEnabled=False):
     try:
       if posEnabled:
-        log.log_exception("Type: NLTK")
         return (nltk.POSifiedText(text, state_size=conf_state_size))
       else:
-        log.log_exception("Type: Simple")
         return (markovify.Text(text, state_size=conf_state_size))
     except:
-      log.log_exception(log.get_exception())
+      log.exception()
       return "Failed"
 
 def get_book_model(bookID, stateSize, posEnabled):
@@ -34,7 +32,7 @@ def get_book_model(bookID, stateSize, posEnabled):
       model = build_model(contents, int(stateSize), posEnabled=posEnabled)
     return model
   except:
-    log.log_exception(log.get_exception())
+    log.exception()
     return "Failed"
 
 def load_active_books(active_books, stateSize, posEnabled):
@@ -42,14 +40,12 @@ def load_active_books(active_books, stateSize, posEnabled):
   try:
     text = ""
     combined_models = build_model("", stateSize, posEnabled) # Initialise a blank text object to combine with
-    print(active_books)
     for book,weight in active_books.items():
       book_model = get_book_model(int(book), stateSize, posEnabled)
-      print(combined_models)
       combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight.
     return combined_models
   except:
-    log.log_exception(log.get_exception())
+    log.exception()
     return "Failed"
 
 
@@ -58,8 +54,6 @@ def save_book_models(self, state_range=[2,5]):
   """ Takes a file object, creates several models and stores them alongside the original """
   generated_model = build_model(self.file.read().decode('UTF-8'), 2)# add in loop for # of ranges
   filename = self.file.name + "_model_2.txt"
-  print(filename)
-  print(generated_model)
   json_model = generated_model.to_json()
   return filename, ContentFile(json_model)
   return filename, json_model

@@ -14,7 +14,8 @@ DEBUG_TOOLBAR_CONFIG = {
 
 
 def exception(filename="general_log.txt", exception=True, err=""):
-  """ Sends exception to core.errors.general_log.txt, or a user denoted string """
+  """ Sends exception to core.errors.general_log.txt, or a user denoted string.
+      If calling this for exceptions without a relevant error stack trace, this will fail. """
   if MARKOV_LOGGING:
       errorFile = open(os.path.join(os.path.dirname(__file__), 'errors', filename), "a")
       startTime = time.time()

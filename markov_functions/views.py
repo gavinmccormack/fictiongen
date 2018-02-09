@@ -11,12 +11,14 @@ import json
 
 @csrf_exempt # Not particularly concerned about illegitimate requests yet.
 def ma_process(request):
+    log.exception(err="Why",exception=False)
     """ Send text to algorithm and return response """
     context_instance=RequestContext(request)
     if request.method == 'POST':
         try:
             # Populate variables
-            request_data = json.loads(request.body)
+            request_body = request.body.decode('utf-8')
+            request_data = json.loads(request_body)
             stateSize = int( request_data['stateSize'] )
             posEnabled = ( request_data['posEnabled'] == "True" ) # A bit iffy
             lines = int(request_data['lines'])
@@ -28,5 +30,5 @@ def ma_process(request):
 
             return HttpResponse(json.dumps(markovedText))
         except Exception as e:
-            return HttpResponse(log.logException())
+            return HttpResponse(log.exception())
     return HttpResponse("Request was not sent as POST request.")

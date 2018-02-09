@@ -13,15 +13,12 @@ from .books import load_active_books
 class fictionObject(object):
   """ This is a wrapper for the markovText method with features for our application """
   def __init__(self, books={}, stateSize=2):
-    print("Init!")
     self.books =  books
     self.stateSize = int(stateSize)
-    print("Init finished")
 
 
   def get_text(self, lines=30, posEnabled=0, paragraphs=3):
     """ Method needs refactored particularly in light of proper book models """
-    log.g_log_exception("Beginning markovification")
     try: 
       model = load_active_books(self.books, self.stateSize, posEnabled) 
       output = self.get_mk_sentences(model, lines ,paragraphs)
