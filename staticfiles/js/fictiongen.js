@@ -145,7 +145,6 @@ function send_log() {
         success : function(data) {
             $( ".response-field p" ).html(data);
             ui_activate_results_pane();
-            console.log(data)
         },
         complete : function() {
             ui_deactivate_loading_notice();
@@ -172,12 +171,13 @@ $(document).ready(function() {
           var booktile = $(this).parent();
           if (booktile.attr('data-text-active')) {
             booktile.removeAttr('data-text-active'); // Toggle attribute
+            booktile.appendTo('.booktile-details-inner');
         } else {
             booktile.attr('data-text-active',"on");
+            booktile.appendTo('#active-books');
         }
-    
-    console.log("Page Events Successfully Registered");
     });
+
 });
 
 
@@ -194,18 +194,4 @@ function copyToClipboard(element) {
   $temp.remove();
 }
 
-/* 
-Placeholder: This is for closing modal boxes when a user clicks outside of them.
 
-$(document).mouseup(function (e)
-{
-    var container = $("YOUR CONTAINER SELECTOR");
-
-    if (!container.is(e.target) // if the target of the click isn't the container...
-        && container.has(e.target).length === 0) // ... nor a descendant of the container
-    {
-        container.hide();
-    }
-});
-
-*/

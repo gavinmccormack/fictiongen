@@ -41,6 +41,6 @@ function highlight_item(selector) {
 
 $(document).ready(function() {
   set_trigger('#tutorial-activate');
-
+  
 
 });

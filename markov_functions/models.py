@@ -7,12 +7,6 @@ from django.core.files import File
 from django.core.files.base import ContentFile
 from core.settings import MEDIA_ROOT
 
-# from djutils.decorators import async     # Python 3 errors. Find alternative or fix lib
-
-
-def decode_file(file):
-  pass
-
 def get_book_directory_path(instance, filename):
   # File directory for books; only used for local access.
   # To do for portability; implement constant
@@ -21,8 +15,9 @@ def get_book_directory_path(instance, filename):
 class Book(models.Model):
   name = models.CharField(max_length=40,blank=True)
   file = models.FileField(upload_to=get_book_directory_path,blank=True)
-  model = models.FileField(upload_to=get_book_directory_path,blank=True)
+  model = models.FileField(upload_to=get_book_directory_path,blank=True) # Model is saved on first use
   user = models.ForeignKey(User, unique=False,blank=True)
+  author = models.CharField(max_length=30,blank=True)
   created     = models.DateTimeField(editable=False,blank=True)
   modified    = models.DateTimeField(blank=True)
   lines       = models.IntegerField(blank=True)
@@ -34,9 +29,7 @@ class Book(models.Model):
       self.created = timezone.now()
     self.modified = timezone.now()
 
-    print(self.file)
-    print(type(self.file.read()))
-    fileContents = self.file.read()#.decode('UTF-8','ignore') # Test case failing
+    fileContents = self.file.read().decode('utf-8','ignore')
     self.lines = len(fileContents.split(' '))
     self.sentences = len(fileContents.split('.'))
     return super(Book, self).save(*args, **kwargs)
