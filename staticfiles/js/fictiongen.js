@@ -48,7 +48,7 @@ function ui_pulse(clickedItem) {
 
 /* Activate the "Results will appear shortly" notice */
 function ui_activate_loading_notice() {
-    $('.loading-notice').animate({ top:'100px' },'slow');
+    $('.loading-notice').animate({ top:'70px' },'slow');
     $('.response-field-wrap').css('display','block');
     // setTimeout(ui_deactivate_loading_notice,5000); // removed on ajax completion
 }
@@ -176,6 +176,11 @@ $(document).ready(function() {
             booktile.attr('data-text-active',"on");
             booktile.appendTo('#active-books');
         }
+    });
+
+    //async load images
+    $('img[data-async-src]').each(function() {
+        $(this).attr('src',$(this).attr('data-async-src'));
     });
 
 });

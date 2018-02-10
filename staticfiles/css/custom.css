@@ -548,13 +548,19 @@ input.checkbox {
   background:rgba(0,0,0,0.7);
   padding:1rem 2rem;
   position:fixed;
-  top:-200px;
+  top:-800px;
   left:0;
   right:0;
   max-width:500px;
   text-align:center;
   margin:0 auto;
   height: auto;
+  z-index:500;
+}
+
+.loading-notice img {
+  margin-left: -2rem;
+  padding-bottom: 20px;
 }
 
 .close-text {
