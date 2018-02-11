@@ -8,7 +8,10 @@
         {% for book in books_query %}
         <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100" data-text-words="{{ book.lines }}">
             <div class="booktile-details booktile-clickable">
-                <span class="book-name col-xs-6">{{ book.name }} <br /><span class="book-author">{{ book.author }}</span></span> 
+                <span class="book-name col-xs-6">
+                    {{ book.name }} </br/>
+                    <span class="book-author">{{ book.author }}</span>
+                </span>
                 <span class="book-lines col-xs-2">{{ book.lines | intcomma}}</span>
                 <span class="book-power col-xs-2"></span>
             </div>

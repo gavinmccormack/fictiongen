@@ -500,6 +500,7 @@ input[type="range"]:active ~ #rangevalue {
 .setting .form-control {
       display: inline-block;
     width: 60%;
+    height:20px;
 }
 
 .small-int-input {
@@ -508,7 +509,9 @@ input[type="range"]:active ~ #rangevalue {
 
 input.checkbox {
       display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+    height:20px;
+    width:20px;
 }
 /* ----------------------------------------------------------------------------------------------------
   Results

@@ -11,7 +11,6 @@ import json
 
 @csrf_exempt # Not particularly concerned about illegitimate requests yet.
 def ma_process(request):
-    log.exception(err="Why",exception=False)
     """ Send text to algorithm and return response """
     context_instance=RequestContext(request)
     if request.method == 'POST':
@@ -24,11 +23,14 @@ def ma_process(request):
             lines = int(request_data['lines'])
             paragraphs = int(request_data['paragraphs'])
 
-            #Create instance and text 
+            #Create instance of text file(s) and then generate the text 
             fictionObj = ma.fictionObject(books=request_data['book_ids'], stateSize=stateSize )
             markovedText = fictionObj.get_text( lines=lines, posEnabled=posEnabled, paragraphs=paragraphs)
 
-            return HttpResponse(json.dumps(markovedText))
+            data = json.dumps(markovedText)
+            if not data:
+                data = "Insufficient text"
+            return HttpResponse(data)
         except Exception as e:
             return HttpResponse(log.exception())
     return HttpResponse("Request was not sent as POST request.")

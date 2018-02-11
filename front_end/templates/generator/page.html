@@ -1,0 +1,24 @@
+
+    <div class="page-content" id="plaintext">
+        <div class="book-tools">
+            <input type="search" placeholder="search"/>
+        </div>
+
+        <div class="row book-tiles">
+            <div class="col-md-9 active-books">
+                {% include "generator/active_books.html" %}
+            </div>
+            
+            <div class="col-md-3 inactive-books">
+                {% include "generator/book_list.html" %}
+            </div>
+        </div>
+
+
+        <button class="btn btn-primary" id="generate-button" onclick="send_log()" title="Give me text!">
+        Create
+        </button>
+        
+        {% include "generator/settings.html" %}
+    </div>
+</div>

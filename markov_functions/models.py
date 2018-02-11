@@ -13,11 +13,11 @@ def get_book_directory_path(instance, filename):
   return 'user/{0}/{1}'.format(instance.user.id, filename)
 
 class Book(models.Model):
-  name = models.CharField(max_length=40,blank=True)
+  name = models.CharField(max_length=80,blank=True)
   file = models.FileField(upload_to=get_book_directory_path,blank=True)
   model = models.FileField(upload_to=get_book_directory_path,blank=True) # Model is saved on first use
   user = models.ForeignKey(User, unique=False,blank=True)
-  author = models.CharField(max_length=30,blank=True)
+  author = models.CharField(max_length=60,blank=True)
   created     = models.DateTimeField(editable=False,blank=True)
   modified    = models.DateTimeField(blank=True)
   lines       = models.IntegerField(blank=True)
