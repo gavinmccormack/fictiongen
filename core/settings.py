@@ -1,7 +1,7 @@
 import os
 from .local_settings import (DATABASES, ALLOWED_HOSTS, SITE_ID, INTERNAL_IPS, DEBUG,
                               SECRET_KEY, BASE_DIR, MEDIA_URL, MEDIA_ROOT, STATIC_ROOT,
-                              STATIC_URL,MARKOV_LOGGING)
+                              STATIC_URL,MARKOV_LOGGING, UWSGI_DEVELOPMENT_MODE)
 import pdb
 
 INSTALLED_APPS = [

@@ -106,20 +106,31 @@ function get_grammar_kit() {
     if ($('#grammar-entry').is(":checked"))
     {return 1; } else { return 0;}
 }
-/* Retrieves active books and weights to be passed to the request */
+
 function get_active_books() { 
-        bookIDs = {};
-        $('.booktile[data-text-active]').each(function() {
-            bookObj = {}
-            id = $(this).attr("data-book-id");
-            weight = $(this).attr("data-text-weight");
-            bookIDs[id] = weight;
-        })
-        return bookIDs;
+    /* Retrieves active books and weights to be passed to the request */
+    bookIDs = {};
+    $('.booktile[data-text-active]').each(function() {
+        var bookObj = {}
+        id = $(this).attr("data-book-id");
+        weight = $(this).attr("data-text-weight");
+        bookIDs[id] = weight;
+    })
+    return bookIDs;
+}
+function get_name_replacements() {
+    if ($('#name-replacement').is(":checked")){
+        var male_name = $('#male-name').val();
+        var female_name = $('#female-name').val();
+        return {male_name, female_name}; 
+    } else {
+     return 0;
+    }
 }
 
-/* Retrieves the JSON data to be passed to the request */
+
 function get_book_request_json() {
+    /* Retrieves the JSON data to be passed to the request. This is an amalgamation of the above */
     bookIDs = get_active_books();
     data = JSON.stringify({
         book_ids : bookIDs,
@@ -127,6 +138,7 @@ function get_book_request_json() {
         lines: get_lines(),
         paragraphs: get_paragraph_size(),
         posEnabled : get_grammar_kit(),
+        names: get_name_replacements(),
         csrfmiddlewaretoken: "{{ csrf_token }}"
     })
     return data;

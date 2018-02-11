@@ -29,11 +29,6 @@ def tag_check(tag):
   else:
     return "::".join(tag)
 
-  # NNP, NN
-
-  # NNPS, NNS (plural)
-
-  # PRP$ , POS, Belongs to 's
 
 
 
@@ -52,12 +47,11 @@ class POSifiedText(markovify.Text):
           try:
             words_cache.append( tag_check(tag) )
           except Exception as e:
-            log.g_log_exception("POSifiedText Problem" ,"NLTK_words.txt",exception=True)
-
+            log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
       words = words_cache
       return words
     except Exception as e:
-      log.g_log_exception("TPos Exception", exception=True)
+      log.exception(err="TPOSifiedText Problem", filename="NLTK_words.txt")
       return words
 
   def word_join(self, words):
@@ -65,17 +59,14 @@ class POSifiedText(markovify.Text):
     return sentence
 
 
-
-### Name Replacemer below ( This is the non-nltk library version, nltk may have a better way of doing this !)
-
-def get_names():
-    with open(names_file,'r',encoding='utf-8') as name_source:
+def get_names(filename):
+    with open(filename,'r',encoding='utf-8') as name_source:
         names = [name.strip() for name in name_source]
         return names
         
 def run_regex_union():
     """ Matches names in names list and replaces with "Sally". """
-    nameList = get_names()
+    nameList = get_names("nltk_data/male_names.txt")
     def replace_names(match_object):
       name = match_object.group(0)
       if name in nameList:
