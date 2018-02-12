@@ -9,17 +9,17 @@ from django.apps import apps
 from markov_functions.text_processors import mk_nltk
 
 ## These should maybe be part of models.py
-def build_model(text, conf_state_size, posEnabled=False):
+def build_model(text, config):
     try:
-      if posEnabled:
-        return (nltk.POSifiedText(text, state_size=conf_state_size))
+      if config['pos_enabled']:
+        return (mk_nltk.POSifiedText(text, state_size=config['state_size']))
       else:
-        return (markovify.Text(text, state_size=conf_state_size))
+        return (markovify.Text(text, state_size=config['state_size']))
     except:
       log.exception()
       return "Failed"
 
-def get_book_model(bookID, stateSize, posEnabled):
+def get_book_model(bookID, config):
   try:
     Book = apps.get_model('markov_functions', 'Book') # Lazy model import to avoid circularity.
     book = Book.objects.get(pk=bookID) 
@@ -29,19 +29,19 @@ def get_book_model(bookID, stateSize, posEnabled):
       model = prebuilt_model
     else:
       contents = book.file.read().decode('utf-8','ignore')
-      model = build_model(contents, int(stateSize), posEnabled=posEnabled)
+      model = build_model(contents, config)
     return model
   except:
     log.exception()
     return "Failed"
 
-def load_active_books(active_books, stateSize, posEnabled):
+def load_active_books(config):
   """ Takes a list of books by ID and loads them into a text string """
   try:
     text = ""
-    combined_models = build_model("", stateSize, posEnabled) # Initialise a blank text object to combine with
-    for book,weight in active_books.items():
-      book_model = get_book_model(int(book), stateSize, posEnabled)
+    combined_models = build_model("", config) # Initialise a blank text object to combine with
+    for book,weight in config['book_ids'].items():
+      book_model = get_book_model(int(book), config)
       combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight.
     return combined_models
   except:

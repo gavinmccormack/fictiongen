@@ -134,11 +134,11 @@ function get_book_request_json() {
     bookIDs = get_active_books();
     data = JSON.stringify({
         book_ids : bookIDs,
-        stateSize: get_statesize() ,
-        lines: get_lines(),
-        paragraphs: get_paragraph_size(),
-        posEnabled : get_grammar_kit(),
-        names: get_name_replacements(),
+        state_size: get_statesize() ,
+        number_of_sentences: get_lines(),
+        size_of_paragraphs: get_paragraph_size(),
+        pos_enabled : get_grammar_kit(),
+        name_replacements: get_name_replacements(), // 0 if inactive
         csrfmiddlewaretoken: "{{ csrf_token }}"
     })
     return data;

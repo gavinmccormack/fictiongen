@@ -11,29 +11,33 @@ from .books import load_active_books
 
 
 class fictionObject(object):
-  """ This is a wrapper for the markovText method with features for our application """
-  def __init__(self, books={}, stateSize=2):
-    self.books =  books
-    self.stateSize = int(stateSize)
+  """ This is the parent class for text generation. """
+  def __init__(self, request_data):
+    """ The JSON format comes in as string, so we'll need to do some typecasting here """
+    self.config = request_data
+    self.config['pos_enabled'] = int(self.config['pos_enabled'])
+    self.config['state_size'] = int(self.config['state_size'])
+    self.config['number_of_sentences'] = int(self.config['number_of_sentences'])
+    self.config['size_of_paragraphs'] = int(self.config['size_of_paragraphs'])
 
-
-  def get_text(self, lines=30, posEnabled=0, paragraphs=3):
+  def get_text(self, config):
     """ Method needs refactored particularly in light of proper book models """
     try: 
-      model = load_active_books(self.books, self.stateSize, posEnabled) 
-      output = self.get_mk_sentences(model, lines ,paragraphs)
+      model = load_active_books(self.config) 
+      log.exception(err=model,exception=False)
+      output = self.get_mk_sentences(model, self.config)   
       return output
     except:
       log.exception()
       return False
 
-  def get_mk_sentences(self, textModel, numberOfLines, paragraphs):
+  def get_mk_sentences(self, model, config):
     output = ""
-    for i in range(numberOfLines):
-        sentence = str(textModel.make_sentence()) + " " # Spaces after full stop
+    for i in range(self.config['number_of_sentences']):
+        sentence = str(model.make_sentence()) + " " # Spaces after full stop
         if sentence != "None ":
-          if i % paragraphs == 0:          # Add in line breaks every so often, just for a bit more of a normal appearance, add this to front end
-            output = output + "<br />"
+          if i % self.config['size_of_paragraphs'] == 0: 
+            output = output + "<br />" # Add line breaks as per paragraph size
           output = output + sentence 
     return output 
 

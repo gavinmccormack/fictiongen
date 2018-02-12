@@ -1,0 +1,15 @@
+Time: 2018-02-12 13:55:02.971222  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 44 "combined_models = build_model("", config['state_size'], config['pos_enabled']) # Initialise a blank text object to combine with"): build_model() takes 2 positional arguments but 3 were given
+Time: 2018-02-12 13:55:02.971690  Failed
+Time: 2018-02-12 13:55:02.971769  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/mk_functions.py, LINE 28 "output = self.get_mk_sentences(model, self.config)"): 'str' object has no attribute 'make_sentence'
+Time: 2018-02-12 13:55:34.977647  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 0, 'state_size': 2}
+Time: 2018-02-12 13:55:34.988894  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 0, 'state_size': 2}
+Time: 2018-02-12 13:55:36.458249  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 0, 'state_size': 2}
+Time: 2018-02-12 13:55:37.297083  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 0, 'state_size': 2}
+Time: 2018-02-12 13:55:40.454773  <markovify.text.Text object at 0x7f936ba025f8>
+Time: 2018-02-12 13:55:45.201377  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
+Time: 2018-02-12 13:55:45.212039  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
+Time: 2018-02-12 13:55:55.388805  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
+Time: 2018-02-12 13:55:59.327058  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
+Time: 2018-02-12 13:56:24.823642  <markov_functions.text_processors.mk_nltk.POSifiedText object at 0x7f936b9549e8>
