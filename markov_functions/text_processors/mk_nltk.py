@@ -7,11 +7,14 @@ import sys
 import os
 import markovify
 import re
+from . import fickgen_splitters as f_split
 
 
 
 importlib.reload(sys)  
 nltk.data.path.append(os.path.join(os.path.dirname(__file__), 'nltk_data'))
+
+
 
 def tag_check(tag):
   """ Replace certain types of words with bizarre food alternatives. 
@@ -35,6 +38,7 @@ def tag_check(tag):
 ## override markovify text method with POS natural language
 class POSifiedText(markovify.Text):
   """ Extend markovify.text method to use POS """
+
   def word_split(self, sentence):
     try:
       words = re.split(self.word_split_pattern, sentence)
@@ -42,21 +46,29 @@ class POSifiedText(markovify.Text):
       return words
 
       ## The below is the "tag check" method.
+      # This is next on the hit list of code to be improved. Tis a mess !
       words_cache = []
       for tag in nltk.pos_tag(words):
           try:
             words_cache.append( tag_check(tag) )
           except Exception as e:
-            log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
+            #log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
       words = words_cache
       return words
     except Exception as e:
-      log.exception(err="TPOSifiedText Problem", filename="NLTK_words.txt")
+      #log.exception(err="TPOSifiedText Problem", filename="NLTK_words.txt")
       return words
 
   def word_join(self, words):
     sentence = " ".join(word.split("::")[0] for word in words)
     return sentence
+
+  def sentence_split(self,text):
+    """ Not in used yet: Override the default splitting and also include commas """
+    return self.split_into_sentences(text)
+
+  def split_into_sentences(self, text):
+    return f_split.split_into_sentences(text)
 
 
 def get_names(filename):

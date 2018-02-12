@@ -21,12 +21,11 @@ class fictionObject(object):
     self.config['size_of_paragraphs'] = int(self.config['size_of_paragraphs'])
 
   def get_text(self, config):
-    """ Method needs refactored particularly in light of proper book models """
+    """ Returns generated text based on the active books """
     try: 
       model = load_active_books(self.config) 
-      log.exception(err=model,exception=False)
-      output = self.get_mk_sentences(model, self.config)   
-      return output
+      generated_text = self.get_mk_sentences(model, self.config)   
+      return generated_text
     except:
       log.exception()
       return False

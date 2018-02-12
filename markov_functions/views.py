@@ -15,13 +15,8 @@ def ma_process(request):
     context_instance=RequestContext(request)
     if request.method == 'POST':
         try:
-            # Populate variables. Nothing fancy here.
             request_body = request.body.decode('utf-8')
-            request_data = json.loads(request_body)
-
-            # I'm wondering about the logic of unpacking all of this JSON here. It maybe should just flow through in it's current state until it reaches an endpoint.
-            # Something to do for spring cleaning.
-        
+            request_data = json.loads(request_body) # This contains all of the settings
 
             fictionObj = ma.fictionObject( request_data ) # Create the model of combined texts
             markovedText = fictionObj.get_text( request_data ) # Return the text

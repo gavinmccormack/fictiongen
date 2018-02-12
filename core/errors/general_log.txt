@@ -13,3 +13,9 @@ Time: 2018-02-12 13:55:45.212039  {'book_ids': {'41': '100', '40': '100', '39': 
 Time: 2018-02-12 13:55:55.388805  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
 Time: 2018-02-12 13:55:59.327058  {'book_ids': {'41': '100', '40': '100', '39': '100'}, 'csrfmiddlewaretoken': '{{ csrf_token }}', 'size_of_paragraphs': 5, 'number_of_sentences': 20, 'name_replacements': 0, 'pos_enabled': 1, 'state_size': 2}
 Time: 2018-02-12 13:56:24.823642  <markov_functions.text_processors.mk_nltk.POSifiedText object at 0x7f936b9549e8>
+Time: 2018-02-12 14:35:14.030461  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 15 "return (mk_nltk.POSifiedText(text, state_size=config['state_size']))"): name 'is_sentence_ender' is not defined
+Time: 2018-02-12 14:35:14.030910  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 45 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2018-02-12 14:35:14.031034  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/mk_functions.py, LINE 27 "generated_text = self.get_mk_sentences(model, self.config)"): 'str' object has no attribute 'make_sentence'
