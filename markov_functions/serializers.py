@@ -7,7 +7,7 @@ from .models import Book
 class BookModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ('name', 'file', 'model', 'user', 'created', 'lines', 'sentences')
+        fields = ('name', 'file', 'model', 'user', 'author', 'created', 'lines', 'sentences')
 
 # this may be needed to customize the serializer in future but for now is unused
         """class BookSerializer(serializers.Serializer):

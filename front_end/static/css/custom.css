@@ -18,12 +18,14 @@ html ,body {
 header,
 .book-tools {
   background-color:#FBBC09;
-  position:fixed;
-  top:0;
   width:100%;
   z-index:50;
   background-color: #444341;
-  border-bottom: 1px solid white;
+  border: 1px solid #ccc;
+}
+
+.book-tools input {
+  width:100%;
 }
 
 body {
@@ -42,19 +44,14 @@ body {
   Typography
 /* ----------------------------------------------------------------------------------------------------*/
 
+html {
+  font-family: 'Roboto';
+}
 h1,h2,h3,h4,h5,h6 {
     font-family:'Lobster Two';
 }
 
-label {
-    font-family:'Lobster Two';
-    font-size:1.2rem;
-    letter-spacing:1px;
-    font-weight:normal;
-}
-
 p {
-    font-family: 'Roboto';
     font-weight: lighter;
     font-size: 1.2rem;
     color:white;
@@ -184,8 +181,9 @@ position: fixed;
 .generator-page .generator-toolbar {
   position:fixed;
   bottom:0;
-  background-color: #282828;
   padding: 20px;
+  border-top: 1px solid purple;
+  background-color: #000000;
 }
 
 
@@ -402,11 +400,13 @@ body .book-tiles {
 
   color:white;
   padding: 0.5rem 2rem;
-  margin: 1px;
   border-bottom: 1px solid rgba(121, 121, 121, 0.7);
   background-color: #333333;
   cursor:pointer;
   transition:all 0.3s ease;
+  border-radius: 3px;
+  margin: 5px;
+  background-color: rgba(0,0,0,0.5);
 }
 
 .booktile-clickable:hover {
@@ -726,4 +726,26 @@ body.tactile-click:before {
   100% {
     background: transparent;
   }
+}
+
+
+
+/* Josh's additions - too lazy to find their proper home */
+
+.booktile-clickable{
+    border-radius: 3px;
+    margin: 5px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.booktile-clickable:hover{
+    background-color: rgba(0,0,0,0.4);
+}
+
+.book-lines{
+    margin-top: 5px;   
+}
+
+input.book-weight{
+   top: 9px;
 }

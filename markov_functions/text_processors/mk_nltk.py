@@ -52,7 +52,7 @@ class POSifiedText(markovify.Text):
           try:
             words_cache.append( tag_check(tag) )
           except Exception as e:
-            #log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
+            pass #log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
       words = words_cache
       return words
     except Exception as e:

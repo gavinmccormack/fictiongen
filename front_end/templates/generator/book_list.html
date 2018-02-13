@@ -3,7 +3,9 @@
 
 
 <div class="booktile-details">
-    <h3>Select books</h3>
+    <div class="book-tools">
+        <input type="search" placeholder="search"/>
+    </div>
     <div class="booktile-details-inner">
         {% for book in books_query %}
         <div class="booktile" data-book-id={{ book.pk }} data-text-weight="100" data-text-words="{{ book.lines }}">

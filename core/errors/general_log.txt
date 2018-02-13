@@ -19,3 +19,11 @@ Time: 2018-02-12 14:35:14.030910
 EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 45 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
 Time: 2018-02-12 14:35:14.031034  
 EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/mk_functions.py, LINE 27 "generated_text = self.get_mk_sentences(model, self.config)"): 'str' object has no attribute 'make_sentence'
+Time: 2018-02-12 20:15:29.335727  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 15 "return (mk_nltk.POSifiedText(text, state_size=config['state_size']))"): [Errno 13] Permission denied: '/home/django/django_markov_2/dj/core/errors/NLTK_words.txt'
+Time: 2018-02-12 20:15:30.145918  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 15 "return (mk_nltk.POSifiedText(text, state_size=config['state_size']))"): [Errno 13] Permission denied: '/home/django/django_markov_2/dj/core/errors/NLTK_words.txt'
+Time: 2018-02-12 20:15:30.146202  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/books.py, LINE 45 "combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight."): `models` should be instances of list, dict, markovify.Chain, or markovify.Text
+Time: 2018-02-12 20:15:30.146366  
+EXCEPTION IN (/home/django/django_markov_2/dj/markov_functions/mk_functions.py, LINE 27 "generated_text = self.get_mk_sentences(model, self.config)"): 'str' object has no attribute 'make_sentence'
