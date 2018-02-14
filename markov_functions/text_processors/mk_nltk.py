@@ -52,11 +52,11 @@ class POSifiedText(markovify.Text):
           try:
             words_cache.append( tag_check(tag) )
           except Exception as e:
-            pass #log.exception(err="POSifiedText Problem", filename="NLTK_words.txt")
+            log.exception(err="POSifiedText Problem", filename="nltk_errors.log")
       words = words_cache
       return words
     except Exception as e:
-      #log.exception(err="TPOSifiedText Problem", filename="NLTK_words.txt")
+      log.exception(err="TPOSifiedText Problem", filename="nltk_errors.log")
       return words
 
   def word_join(self, words):
