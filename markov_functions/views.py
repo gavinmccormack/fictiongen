@@ -14,17 +14,14 @@ def ma_process(request):
     """ Send text to algorithm and return generated text """
     context_instance=RequestContext(request)
     if request.method == 'POST':
-        try:
-            request_body = request.body.decode('utf-8')
-            request_data = json.loads(request_body) # This contains all of the settings
+        request_body = request.body.decode('utf-8')
+        request_data = json.loads(request_body) # This contains all of the settings
 
-            fictionObj = ma.fictionObject( request_data ) # Create the model of combined texts
-            markovedText = fictionObj.get_text( request_data ) # Return the text
+        fictionObj = ma.fictionObject( request_data ) # Create the model of combined texts
+        markovedText = fictionObj.get_text( request_data ) # Return the text
 
-            data = json.dumps(markovedText)
-            if data == "":
-                data = "Insufficient text"
-            return HttpResponse(data)
-        except Exception as e:
-            return HttpResponse(log.exception())
+        data = json.dumps(markovedText)
+        if data == "":
+            data = "Insufficient text"
+        return HttpResponse(data)
     return HttpResponse("Request was not sent as POST request.")

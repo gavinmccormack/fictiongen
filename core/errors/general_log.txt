@@ -1,0 +1,4 @@
+Time: 2018-12-18 03:17:44.910865  
+EXCEPTION IN (/mnt/c/Users/Grimba/Desktop/fictiongen/fictiongen/markov_functions/mk_functions.py, LINE 26 "model = load_active_books(self.config)"): ('___BEGIN__', '___BEGIN__', '___BEGIN__')
+Time: 2018-12-18 03:18:08.397057  
+EXCEPTION IN (/mnt/c/Users/Grimba/Desktop/fictiongen/fictiongen/markov_functions/views.py, LINE 22 "markovedText = fictionObj.get_text( request_data ) # Return the text"): ('___BEGIN__', '___BEGIN__', '___BEGIN__')

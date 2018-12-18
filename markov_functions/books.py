@@ -10,14 +10,10 @@ from markov_functions.text_processors import mk_nltk
 
 ## These should maybe be part of models.py
 def build_model(text, config):
-    try:
-      if config['pos_enabled']:
-        return (mk_nltk.POSifiedText(text, state_size=config['state_size']))
-      else:
-        return (markovify.Text(text, state_size=config['state_size']))
-    except:
-      log.exception()
-      return "Failed"
+  if config['pos_enabled']:
+    return (mk_nltk.POSifiedText(text, state_size=config['state_size']))
+  else:
+    return (markovify.Text(text, state_size=config['state_size']))
 
 def get_book_model(bookID, config):
   try:
@@ -34,19 +30,15 @@ def get_book_model(bookID, config):
   except:
     log.exception()
     return "Failed"
-
+ 
 def load_active_books(config):
-  """ Takes a list of books by ID and loads them into a text string """
-  try:
-    text = ""
-    combined_models = build_model("", config) # Initialise a blank text object to combine with
-    for book,weight in config['book_ids'].items():
-      book_model = get_book_model(int(book), config)
-      combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight.
-    return combined_models
-  except:
-    log.exception()
-    return "Failed"
+  text = ""
+  combined_models = build_model("Sally was a lumpkin", config) # Initialise a blank text object to combine with
+  print(combined_models)
+  for book,weight in config['book_ids'].items():
+    book_model = get_book_model(int(book), config)
+    combined_models = markovify.combine([combined_models, book_model],[ 1 , int(weight) ]) # Combine total model with current loop model with it's prescribed weight.
+  return combined_models
 
 
 

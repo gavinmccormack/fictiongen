@@ -16,7 +16,7 @@ class Book(models.Model):
   name = models.CharField(max_length=80,blank=True)
   file = models.FileField(upload_to=get_book_directory_path,blank=True)
   model = models.FileField(upload_to=get_book_directory_path,blank=True) # Model is saved on first use
-  user = models.ForeignKey(User, unique=False,blank=True)
+  user = models.ForeignKey(User, unique=False,blank=True, on_delete=models.CASCADE,)
   author = models.CharField(max_length=60,blank=True)
   created     = models.DateTimeField(editable=False,blank=True)
   modified    = models.DateTimeField(blank=True)
@@ -40,3 +40,4 @@ class Book(models.Model):
   class Meta:
     verbose_name = 'Book'
     verbose_name_plural = 'Site Books'
+ 

@@ -22,17 +22,15 @@ class fictionObject(object):
 
   def get_text(self, config):
     """ Returns generated text based on the active books """
-    try: 
-      model = load_active_books(self.config) 
-      generated_text = self.get_mk_sentences(model, self.config)   
-      return generated_text
-    except:
-      log.exception()
-      return False
+    model = load_active_books(self.config) 
+    generated_text = self.get_mk_sentences(model, self.config)   
+    return generated_text
 
   def get_mk_sentences(self, model, config):
     output = ""
     for i in range(self.config['number_of_sentences']):
+        print(model)
+        print(type(model))
         sentence = str(model.make_sentence()) + " " # Spaces after full stop
         if sentence != "None ":
           if i % self.config['size_of_paragraphs'] == 0: 
