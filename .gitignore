@@ -102,3 +102,7 @@ ENV/
 local_settings.py
 dj/errors/*
 dj/errors/general_log.txt
+
+.vscode
+staticfiles/rest_framework/*
+staticfiles/admin/*

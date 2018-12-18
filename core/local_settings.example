@@ -1,6 +1,7 @@
 """
 This is an example file for the local settings that will need set up.
 
+These settings should be fine for local development purposes; copy them to local_settings.py
 
 """
 
@@ -20,4 +21,12 @@ ALLOWED_HOSTS = []
 #Dev
 MARKOV_LOGGING = True # Enable descriptive logging to file. Disable on production as write operations are slow.
 DEBUG = True
-SECRET_KEY = ''
+SECRET_KEY = '0l$&^@70$nmzlgs!)@us(!g0wxl6j+iseqxfqxa49@dt^-d2&e'
+SITE_ID = "localhost"
+INTERNAL_IPS = []
+STATIC_ROOT = "staticfiles"
+STATIC_URL = "/static"
+MEDIA_URL = "/static"
+MEDIA_ROOT = "media"
+
+UWSGI_DEVELOPMENT_MODE = False
