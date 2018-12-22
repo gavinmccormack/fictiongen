@@ -2,6 +2,7 @@ Django==2.1.4
 django-bootstrap3==11.0.0
 django-debug-toolbar==1.11
 django-forms-bootstrap==3.1.0
+django-webpack-loader==0.6.0
 djangorestframework==3.9.0
 markovify==0.7.1
 nltk==3.4

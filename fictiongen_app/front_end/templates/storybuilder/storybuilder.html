@@ -1,0 +1,17 @@
+<!-- Main storybuilder file ( user facing ) -->
+
+{% load render_bundle from webpack_loader %}
+<h2> React test </h2>
+
+
+
+<div id="react"></div>
+{% render_bundle 'main' %}
+
+<div class="container">
+    <div class="row">
+        {% include "storybuilder/elements/storypanel.html" %}
+        {% include "storybuilder/elements/suggestions.html" %}
+    </div>
+</div>
+

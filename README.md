@@ -32,4 +32,12 @@ Windows (PS1)
 python -m pip install -r requirements.txt
 ```
 
-4. Configure local_settings.py ( copy local_settings.example, which should be fine for local development )
+4. Run the local development environment but executing the following command on the base directory
+
+```
+python manage.py runserver
+```
+
+This should run the development server on a local device. A rough WSGI configuration is also included but will likely need tweaking.
+
+A sample local_settings.py is included, but you may need to change some installation specific information, particularly if it is publically accessible
