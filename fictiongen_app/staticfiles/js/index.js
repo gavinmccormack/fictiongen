@@ -1,26 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+var data = require('./data.js');
 
-
-function Welcome(props) {
-  return <h1>Hellowee, {props.name}</h1>;
-}
-
-const element = <Welcome name="worlde" />;
-ReactDOM.render(
-  element,
-  document.getElementById('react')
-); 
-
-
+console.log(data);
 // Settings; to be hooked into room settings / etc but for now can be per session 
-const settingsElement = <storySettings roomID="hmm"/>;
-const fudge = <h1>Fudge</h1>;
-
 const settingsArea = <inputArea><input class='checkbox' id='grammar-entry' type='checkbox' /><span></span><label>Label Of Thing</label></inputArea>;
 
 ReactDOM.render(
     settingsArea, 
     document.getElementById('settings')
 ); 
+
+class StoryPanel extends React.Component {
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        this.update();
+        return (<h1>basic render enabled</h1>);
+    }
+
+    update(){
+        console.log(data);
+        storyData = data.getUpdatedStory();
+        console.log(storyData);
+    }
+}
+
+ReactDOM.render(
+    <StoryPanel />,
+    document.getElementById('story')
+);
