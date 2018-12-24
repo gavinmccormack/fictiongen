@@ -1,0 +1,448 @@
+<link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet"> 
+<div class="header">
+    <div id="logo">
+        <h1>Fiction Generator</h1>
+    </div>
+
+    <div id="menu">
+        <li><a class="menu-item">FAQ</a></li>
+        <li><a class="menu-item">How</a></li>
+        <li><a class="menu-item">Why</a></li>
+        <li><a class="menu-item">Contact</a></li>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="story">
+        <div class="content">
+            <p>
+            <span class="mk-line">The end of the Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati amet molestias, vero voluptas reprehenderit totam ratione. Voluptatem sequi fugiat aliquam qui molestias accusantium omnis dignissimos, accusamus magnam libero laboriosam error.</span>
+            <span class="mk-line">beginning</span>
+            <span class="mk-line">is here</span>
+            </p>
+            <p>
+            <span class="mk-line">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem, deserunt. Laboriosam fuga neque quae at odit minus placeat dolorum iure, eaque vero praesentium? Quaerat porro libero totam voluptatum? In, magni!</span>
+            <span class="mk-line">and so it was</span>
+            <span class="mk-line">there is</span>
+            <span class="mk-line">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eveniet enim dolorum perspiciatis nesciunt sunt fugiat, unde maiores. Nemo veniam aliquam perferendis asperiores eius omnis quae nulla cumque magnam ullam.</span></p>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        
+        <div class="sidebar-menu">
+            <li><a class="menu-item tabber" data-tab-target="suggestions">Suggestions</a></li>
+            <li class="active"><a class="menu-item tabber" data-tab-target="settings">Settings</a></li>
+        </div>
+
+        <div id="suggestions" class="tab hide">
+            <div class="suggestion-element">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eveniet enim dolorum perspiciatis nesciunt sunt fugiat, unde maiores. Nemo veniam aliquam perferendis asperiores eius omnis quae nulla cumque magnam ullam.
+            </div>
+
+            <div class="suggestion-element">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eveniet enim dolorum perspiciatis nesciunt sunt fugiat, unde maiores. Nemo veniam aliquam perferendis asperiores eius omnis quae nulla cumque magnam ullam.
+            </div>
+
+            <div class="suggestion-element">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eveniet enim dolorum perspiciatis nesciunt sunt fugiat, unde maiores. Nemo veniam aliquam perferendis asperiores eius omnis quae nulla cumque magnam ullam.
+            </div>
+
+        </div>
+
+        <div class="settings tab" id="settings">
+            <!-- checkbox style check -->
+            <div class="checkbox">
+                <input type="checkbox" />
+                <div class="mk-checkbox"><div class="check-icon"></div></div>
+                <label>POS Tagging</label>
+            </div>
+            <!-- end checkbox-->
+
+            <!-- checkbox style check -->
+            <div class="checkbox">
+                <input type="checkbox" />
+                <div class="mk-checkbox"><div class="check-icon"></div></div>
+                <label>More</label>
+            </div>
+            <!-- end checkbox-->
+
+            <!-- checkbox style check -->
+            <div class="checkbox">
+                <input type="checkbox" />
+                <div class="mk-checkbox"><div class="check-icon"></div></div>
+                <label>Such and Such</label>
+            </div>
+            <!-- end checkbox-->
+        </div>
+
+        <div class="books tab">
+            <h4 class="books-heading">Selected</h4>
+            <div class="book-tile">
+                <span class="title">Frankenstein</span>
+                <span class="author">Mary Shelley</span>
+                <div class="tools">
+                    <span class="icon-add" tabindex="0"></span>
+                </div>
+            </div>
+
+
+            <div class="book-tile">
+                <span class="title">Frankenstein</span>
+                <span class="author">Mary Shelley</span>
+                <div class="tools">
+                    <span class="icon-add" tabindex="0"></span>
+                </div>
+            </div>
+
+
+            <div class="book-tile">
+                <span class="title">Frankenstein</span>
+                <span class="author">Mary Shelley</span>
+                <div class="tools">
+                    <span class="icon-add" tabindex="0"></span>
+                </div>
+            </div>
+
+
+            <h4 class="books-heading">Available Books</h4>
+            <div class="book-tile">
+                <span class="title">Frankenstein</span>
+                <span class="author">Mary Shelley</span>
+                <div class="tools">
+                    <span class="icon-add" tabindex="0"></span>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+<style>
+
+    /* unimportant */
+    body {
+        background-color: #222;
+    }
+
+    /* checkbox code */
+    .checkbox {
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .checkbox input {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        opacity: 0;
+        
+        cursor: pointer;
+    }
+
+    .checkbox .mk-checkbox {
+        width: 20px;
+        height: 20px;
+        z-index: 5;
+        border: 2px solid rgba(255,82,82,0.87);
+        border-radius: 3px;
+        position: relative;
+        pointer-events: none;
+        position: absolute;
+        cursor: pointer;
+        background-color: transparent;
+        transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1),background-color .4s cubic-bezier(0.25,0.8,0.25,1);
+    }
+
+    .checkbox input:checked + .mk-checkbox {
+        
+        background-color: rgba(255,82,82,0.87);
+    }
+
+    .checkbox input:checked + .mk-checkbox > .check-icon:before {
+        content:  "\2713";
+        color: #222;
+        font-size: 20px;
+        line-height: 20px;
+        margin-left: 2px;
+    } 
+
+    .checkbox label {
+        line-height: 25px;
+        color: rgba(255,82,82,0.87);
+        font-family: 'Roboto';
+        font-size: 15px;
+        margin-left: 35px;
+    }
+
+
+    /* General */
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        text-rendering: optimizeLegibility;
+        height: 100%;
+    }
+    
+    /* Layout */
+    /* typically spacing and positioning */
+
+    body {
+        margin: 0;
+    }
+
+    .header {
+        padding: 20px;
+        height: 64px;
+    }
+
+    .main-content {
+        display: flex;
+        height: 100%;
+    }
+
+    .story {            
+        flex-basis: 66.6%;
+        padding: 20px;
+    }
+
+    .sidebar {
+        flex-basis: 33.3%;
+    }
+
+    .settings {
+        padding: 4%;
+    }
+
+    /* Menu */
+
+    #menu {
+        flex-basis: 66.6%;
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        flex-direction: row-reverse;
+        list-style-type: none;
+        vertical-align: middle;
+        align-items: center;
+    }
+
+    #menu li {
+        font-size: 14px;
+        margin-left: 32px;
+        text-transform: uppercase;
+    }
+
+    a.menu-item {
+        color: white;
+        font-family: "Roboto";font-weight: 500;
+        text-decoration: none !important;
+        text-transform: uppercase;
+    }
+
+    a.menu-item:active {
+        color: #ff5252 !important;
+    }
+
+    #logo {
+        flex-basis: 33.3%;
+    }
+
+    /* layout styling */
+    /* Styling of other varities for the sections/layout elements */
+    .header {
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        padding: 10 50px;
+        display: flex;
+    }
+
+    .header h1 {
+        font-family: 'Spicy Rice', cursive;
+        position: relative;
+        top: -6px;
+        left: -5px;
+        font-size: 30.1px;
+        letter-spacing: 2px;
+        line-height: 64px;
+        font-weight: lighter;
+        margin: 0;
+        height: 64px;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        color: white;
+        margin-left: 10px;
+    }
+
+    .sidebar {
+        border-left:  1px solid rgba(255,255,255,0.4);
+    }
+
+    .main-content {
+        border-bottom:  1px solid rgba(255,255,255,0.4);
+    }
+
+    .sidebar-menu {
+        display: flex;
+    }
+
+    .sidebar-menu li {
+        list-style: none;
+        flex-basis: 50%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        transition: all 0.3 ease;
+    }
+
+    .sidebar-menu li:first-child {
+        border-right: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .sidebar-menu li.active {
+        background-image: repeating-linear-gradient(100deg, #222, #222 5px, #242424 5px, #242424 10px);    
+    }
+
+    .sidebar-menu li.active a{
+        color: #ff5252 !important; 
+    }
+
+    .sidebar .tab {
+        position: relative;
+        transition: left 0.4s ease, opacity 0.1s ease;
+        left: 0;
+    }
+
+    .sidebar .tab.hide {
+        left: 1000px;
+        height: 0;
+        opacity: 0;
+    }
+
+    /* books */
+
+    .books-heading {
+        margin-left: 4%;
+        color: white;
+        font-family: "Roboto";
+    }
+
+    .book-tile {
+        padding: 10px 0px;
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.4);
+        color: white;
+        font-family: Roboto;
+        width: 90%;
+        margin-left: 4%;
+    }
+
+    .book-tile .title {
+        
+    }
+
+    .book-tile .author {
+        display: block;
+        color: rgba(255,255,255,0.7);
+        font-weight: lighter;
+    }
+    
+
+    .book-tile .tools {
+        margin-top: 5px;
+    }
+
+
+    .icon-add {
+        outline: 0;
+    }
+
+    .icon-add:before { /* technically a general feature */
+        content: "+";
+        background-color:  rgba(255,82,82,0.87);
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+        display: block;
+        box-sizing: border-box;
+        padding-left: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 20px;
+        display: inline-block;
+        color: #222;
+        cursor: pointer;
+        transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1),background-color .4s cubic-bezier(0.25,0.8,0.25,1);
+    }
+
+    .icon-add:focus:before {
+        background-color: rgba(255,82,82,0.47);;
+    }
+
+
+    /* story styling */
+
+    .story .content {
+        max-width: 620px;
+        margin: 0 auto;
+        
+        margin-top: 45px;
+    }
+
+    .story p {
+        margin: 0;
+        margin-bottom: 0px;
+        font-size: 1em;
+        font-weight: 400;
+        color: #eee;
+        font-family: Tiempos,Georgia,serif;
+        line-height: 1.875;
+    }
+
+    .story .mk-line:hover {
+        background-color: #666;
+    }
+
+    .story .mk-line.active {
+        /* Active is a state which occurs on click, and releases when another object is clicked */
+        background-color:  rgba(255,82,82,0.87);
+    }
+
+    /* Suggestion elements */
+
+    .suggestion-element {
+        padding: 20px;
+        margin: 0;
+        margin-left: 4%;
+        width: 85%;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        color: white;
+        font-size: 1em;
+        font-weight: 400;
+        color: #eee;
+        font-family: Tiempos,Georgia,serif;
+        line-height: 1.875;
+        text-align: center;
+    }
+
+
+</style>
+
+<script>
+    // Sort of just placeholder code.
+    var sidebarModes = document.querySelectorAll(".tabber");
+    console.log(sidebarModes);
+    document.querySelectorAll(".tab").forEach(function(el) { el.classList.toggle("hide"); });
+    for (let menuItem of sidebarModes ){
+        menuItem.onclick = function() {
+            document.querySelectorAll(".tab").forEach(function(el) { el.classList.toggle("hide"); });
+        }
+
+    }
+</script>
