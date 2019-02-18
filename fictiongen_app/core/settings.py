@@ -56,6 +56,7 @@ TEMPLATES = [
     },
 ]
 
+STATICFILE_DIRS = [os.path.join(BASE_DIR, "front_end", "static")]
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
