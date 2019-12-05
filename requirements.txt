@@ -5,7 +5,7 @@ django-forms-bootstrap==3.1.0
 django-webpack-loader==0.6.0
 djangorestframework==3.9.0
 markovify==0.7.1
-nltk==3.4
+nltk==3.4.5
 pytz==2018.7
 singledispatch==3.4.0.3
 six==1.12.0
