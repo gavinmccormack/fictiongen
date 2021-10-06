@@ -2,7 +2,7 @@
 
 Recommended method:
 
-N.B This has been tested on linux, and WSL. Python packages may be harder to instlal directly via windows.
+N.B This has been tested on linux, and WSL. Python packages may be harder to install directly via windows.
 
 1. Create a virtualenv
 
